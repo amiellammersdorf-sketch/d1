@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="uuid-a0910701-248b-4804-bf3e-b62cf3cc06b2" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 46">
+  <defs>
+    <style>
+      .uuid-173463ba-d4d4-4eb4-b86e-a090fa6ae417 {
+        fill: none;
+        stroke: #021695;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6px;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="uuid-173463ba-d4d4-4eb4-b86e-a090fa6ae417" x="3" y="3" width="60" height="40"/>
+    <polyline class="uuid-173463ba-d4d4-4eb4-b86e-a090fa6ae417" points="3 3 33 25.5 63 3"/>
+    <line class="uuid-173463ba-d4d4-4eb4-b86e-a090fa6ae417" x1="28.263" y1="22.342" x2="3" y2="43"/>
+  </g>
+  <line class="uuid-173463ba-d4d4-4eb4-b86e-a090fa6ae417" x1="63" y1="43" x2="37.737" y2="22.342"/>
+</svg>

@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "AkkuratPro";
+  src: url("/fonts/AkkuratPro-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AkkuratPro";
+  src: url("/fonts/AkkuratPro-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* FAQ list styling */
+.faq-answer ul {
+  list-style-type: disc;
+  padding-left: 0.8em;          /* align bullets close to the text */
+  margin: 0.8em 0;              /* vertical spacing above/below list */
+}
+
+.faq-answer li {
+  margin-bottom: 0.5em;         /* more breathing room between lines */
+  line-height: 1.5;             /* slightly looser line height */
+  color: #021695;               /* brand blue for bullets and text */
+}
+.faq-answer a {
+  color: #021695;
+  font-weight: 400;            /* normal weight by default */
+  text-decoration: none;       /* no underline */
+  transition: font-weight 0.15s ease;
+  display: inline-block;       /* prevents text reflow jitter */
+}
+
+.faq-answer a:hover {
+  font-weight: 700;            /* bold on hover */
+}
+
+/* --- FAQ link hover effect --- */
+.faq-answer a {
+  display: inline-block;      /* isolates layout */
+  font-weight: 400;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.faq-answer a:hover {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+.faq-answer a {
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none;
+  color: inherit;
+  line-height: 1.5;
+  transition: transform 0.12s ease, font-weight 0.12s ease;
+  transform: scale(1);
+  transform-origin: center left; /* keeps left edge fixed */
+  padding-left: 1px;             /* avoids first-letter clipping */
+  will-change: transform;
+}
+
+.faq-answer a:hover {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  transform: scale(1.01);
+}
+/* --- Mobile global text style --- */
+@media (max-width: 768px) {
+  body {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  p, li {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-content {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+}
+input,
+textarea,
+select {
+  border-radius: 0 !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
