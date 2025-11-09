@@ -155,12 +155,19 @@ export default function LegalAccordion() {
           </p>
           <p>
             <strong>Webdesign</strong><br />
-            by sssD1
+            by D1 Print Studio
           </p>
           <p>
-            <strong>Photos</strong><br />
-            Zoomer Agency
-          </p>
+  <strong>Photos</strong><br />
+  <a
+    href="https://www.zoomer-agency.ch/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:underline"
+  >
+    Zoomer Agency
+  </a>
+</p>
           <p>
             <strong>Texte</strong><br />
             Roger Berhalter
