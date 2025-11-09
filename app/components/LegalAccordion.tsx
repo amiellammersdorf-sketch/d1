@@ -26,8 +26,7 @@ export default function LegalAccordion() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [openId]);
 
-  const items: { id: ItemId; title: string; content: React.ReactNode }[] = [
-
+  const items: { id: ItemId; title: string; content: JSX.Element }[] = [
 
     {
       id: "agb",
@@ -156,7 +155,15 @@ export default function LegalAccordion() {
           </p>
           <p>
             <strong>Webdesign</strong><br />
-            by D1
+            by sssD1
+          </p>
+          <p>
+            <strong>Photos</strong><br />
+            Zoomer Agency
+          </p>
+          <p>
+            <strong>Texte</strong><br />
+            Roger Berhalter
           </p>
         </div>
       ),
