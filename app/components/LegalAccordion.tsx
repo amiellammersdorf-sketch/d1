@@ -26,7 +26,8 @@ export default function LegalAccordion() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [openId]);
 
-  const items: { id: ItemId; title: string; content: JSX.Element }[] = [
+  const items: { id: ItemId; title: string; content: React.ReactNode }[] = [
+
 
     {
       id: "agb",
