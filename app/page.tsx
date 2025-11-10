@@ -137,9 +137,9 @@ export default function Page() {
     gallerySlugFor(activeId) === "about" ? 4 :
 gallerySlugFor(activeId) === "faq" ? 4 :
     gallerySlugFor(activeId) === "workshops" ? 4 : 3} // 👈 custom count for Siebdruck
+  framed={false}
   className="w-full h-auto"
-  aspectPercent="56.25%"
-  intervalMs={4000}
+  
 />
 
   </div>
