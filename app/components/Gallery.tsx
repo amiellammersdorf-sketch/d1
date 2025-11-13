@@ -25,78 +25,100 @@ export default function Gallery({
   alts = [],
   className = "",
 }: GalleryProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [scrollHeight, setScrollHeight] = useState(0);
 
-  // calculate dynamic height (equal to gallery width)
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // Pause auto-loop animation while dragging
   useEffect(() => {
-    const updateHeight = () => {
-      const track = trackRef.current;
-      const scroll = scrollRef.current;
-      if (!track || !scroll) return;
-      const totalWidth = track.scrollWidth;
-      const viewportHeight = window.innerHeight;
-      const height = totalWidth - window.innerWidth + viewportHeight;
-      setScrollHeight(height);
-    };
-    updateHeight();
-    window.addEventListener("resize", updateHeight);
-    return () => window.removeEventListener("resize", updateHeight);
-  }, [section, count]);
+    if (!trackRef.current) return;
+    trackRef.current.style.animationPlayState = isDragging ? "paused" : "running";
+  }, [isDragging]);
 
-  // move horizontally while scrolling vertically
-  useEffect(() => {
-    const scroll = scrollRef.current;
-    const track = trackRef.current;
-    if (!scroll || !track) return;
+  // Mouse drag start
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.clientX - (containerRef.current?.offsetLeft || 0));
+    setScrollLeft(containerRef.current?.scrollLeft || 0);
+  };
 
-    const handleScroll = () => {
-      const rect = scroll.getBoundingClientRect();
-      const start = rect.top * -1;
-      const max = scroll.offsetHeight - window.innerHeight;
-      const progress = Math.min(Math.max(start / max, 0), 1);
-      track.style.transform = `translateX(-${progress * (track.scrollWidth - window.innerWidth)}px)`;
-    };
+  const handleMouseUp = () => setIsDragging(false);
+  const handleMouseLeave = () => setIsDragging(false);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Mouse drag move
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !containerRef.current) return;
+    const x = e.clientX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
 
+  // Touch drag
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX - (containerRef.current?.offsetLeft || 0));
+    setScrollLeft(containerRef.current?.scrollLeft || 0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !containerRef.current) return;
+    const x = e.touches[0].clientX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => setIsDragging(false);
+
+  // Build image list
   const images = Array.from(
     { length: count },
     (_, i) => `/galleries/${section}/img_${i + 1}.jpg`
   );
 
+  // duplicate images for smooth infinite loop
+  const looped = [...images, ...images];
+
   return (
-    <section
-      ref={scrollRef}
-      style={{ height: `${scrollHeight}px` }}
-      className={`relative w-full overflow-hidden bg-white ${className}`}
-    >
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+    <div className={`relative w-full h-full overflow-hidden bg-white ${className}`}>
+      {/* DRAG CONTAINER */}
+      <div
+        ref={containerRef}
+        className="absolute top-0 left-0 w-full h-full overflow-x-scroll overflow-y-hidden scrollbar-hide"
+        style={{ cursor: isDragging ? "grabbing" : "grab" }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* AUTO-SCROLLING TRACK */}
         <div
           ref={trackRef}
-          className="flex will-change-transform transition-transform duration-75 ease-linear"
+          className="flex animate-gallery-loop"
+          style={{ width: `${looped.length * 100}vw` }}
         >
-          {images.map((src, i) => (
+          {looped.map((src, i) => (
             <div
-              key={src}
-              className={`relative flex-shrink-0 h-screen border-r-[6px] border-[#021695]`}
+              key={i}
+              className="relative flex-shrink-0 h-full border-r-[6px] border-[#021695]"
             >
               <Image
                 src={src}
-                alt={alts[i] ?? `${section} ${i + 1}`}
+                alt={alts[i % images.length] ?? `${section} ${i + 1}`}
                 width={2400}
                 height={1200}
-                className="h-full w-auto object-contain select-none"
-                unoptimized
-                priority={i === 0}
+                className="h-full w-auto object-contain select-none pointer-events-none"
+                draggable={false}
               />
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
