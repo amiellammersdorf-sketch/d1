@@ -31,6 +31,8 @@ export default function Gallery({
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [trackWidth, setTrackWidth] = useState<number | null>(null);
+
 
   // Pause auto-loop animation while dragging
   useEffect(() => {
@@ -79,7 +81,24 @@ export default function Gallery({
   );
 
   // duplicate images for smooth infinite loop
-  const looped = [...images, ...images];
+  const looped = Array(10).fill(images).flat();
+
+
+// measure real image width
+useEffect(() => {
+  if (!trackRef.current) return;
+
+  requestAnimationFrame(() => {
+    const images = trackRef.current!.querySelectorAll("img");
+    if (images.length === 0) return;
+
+    const realWidth = images[0].getBoundingClientRect().width;
+    const totalWidth = realWidth * looped.length;
+
+    setTrackWidth(totalWidth);
+  });
+}, [section, count]);
+
 
   return (
     <div className={`relative w-full h-full overflow-hidden bg-white ${className}`}>
@@ -98,10 +117,13 @@ export default function Gallery({
       >
         {/* AUTO-SCROLLING TRACK */}
         <div
-          ref={trackRef}
-          className="flex animate-gallery-loop"
-          style={{ width: `${looped.length * 100}vw` }}
-        >
+  ref={trackRef}
+  className="flex animate-gallery-loop"
+  style={{
+    width: trackWidth ? `${trackWidth}px` : "200vw",
+  }}
+>
+
           {looped.map((src, i) => (
             <div
               key={i}
