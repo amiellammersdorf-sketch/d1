@@ -5,20 +5,73 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 export default function Kontakt() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
-  });
+  id: "google-map-script",
+  googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
+  libraries: ["places"],
+});
+
 
   const D1 = { lat: 47.417908, lng: 9.381269 };
 
   const mapStyle = [
-    { elementType: "geometry", stylers: [{ color: "#ffffff" }] },
-    { elementType: "labels.text.fill", stylers: [{ color: "#021695" }] },
-    { elementType: "labels.text.stroke", stylers: [{ color: "#ffffff" }] },
-    { featureType: "water", elementType: "geometry", stylers: [{ color: "#021695" }] },
-    { featureType: "road", elementType: "geometry", stylers: [{ color: "#021695" }] },
-    { featureType: "poi", stylers: [{ visibility: "off" }] },
-    { featureType: "transit", stylers: [{ visibility: "off" }] },
-  ];
+  // Background base (all white)
+  {
+    elementType: "geometry",
+    stylers: [{ color: "#ffffff" }],
+  },
+
+  // All labels use D1 blue
+  {
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#021695" }],
+  },
+  {
+    elementType: "labels.text.stroke",
+    stylers: [{ color: "#ffffff" }],
+  },
+
+  // Roads
+  {
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [{ color: "#021695" }],
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#021695" }],
+  },
+
+  // Water
+  {
+    featureType: "water",
+    elementType: "geometry",
+    stylers: [{ color: "#021695" }],
+  },
+
+  // Hide all POIs (parks, stores, museums...)
+  {
+    featureType: "poi",
+    stylers: [{ visibility: "off" }],
+  },
+
+  // Hide transit icons (bus stops, train icons...)
+  {
+    featureType: "transit",
+    stylers: [{ visibility: "off" }],
+  },
+
+  // Hide all business and admin labels
+  {
+    featureType: "poi.business",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "administrative",
+    stylers: [{ visibility: "off" }],
+  },
+];
+
 
   const markerIcon = {
     url:
@@ -84,7 +137,15 @@ export default function Kontakt() {
       <p>
         D1 Print Studio<br />
         Demutstrasse 1, 9000 St. Gallen
-      </p>
+      <br />
+  <a
+    href="tel:+41766853019"
+    className="font-normal hover:font-bold transition-all cursor-pointer"
+  >
+    +41 76 685 30 19
+  </a>
+</p>
+
 
       {/* Map */}
       {isLoaded && (
