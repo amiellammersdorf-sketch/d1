@@ -100,3 +100,35 @@ select {
   -webkit-appearance: none;
   appearance: none;
 }
+@keyframes galleryLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-gallery-loop {
+  animation: galleryLoop 40s linear infinite;
+}
+@keyframes galleryLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-gallery-loop {
+  animation: galleryLoop 40s linear infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
