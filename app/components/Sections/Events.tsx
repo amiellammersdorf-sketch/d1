@@ -2,7 +2,7 @@
 
 export default function Events() {
   return (
-    <div className="space-y-4 text-[#021695]">
+    <div id="events" className="space-y-4 text-[#021695]">
       <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
         EVENTS
       </h2>
