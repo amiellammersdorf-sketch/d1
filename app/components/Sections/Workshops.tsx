@@ -15,7 +15,6 @@ type Workshop = {
 };
 
 export default function Workshops() {
-  // ✅ tell TS what’s in each state
   const [workshops, setWorkshops] = useState<Workshop[]>([]);
   const [loading, setLoading] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -30,7 +29,6 @@ export default function Workshops() {
         const res = await fetch(process.env.NEXT_PUBLIC_SHEETDB_URL!);
         const data: Workshop[] = await res.json();
 
-        // ✅ type parameter on str
         const decodeHTML = (str: string): string => {
           if (!str) return "";
           const txt = document.createElement("textarea");
@@ -57,7 +55,6 @@ export default function Workshops() {
     fetchData();
   }, []);
 
-  // ✅ typed parameter
   async function handleBook(workshopId: string) {
     setLoading(workshopId);
     try {
@@ -95,6 +92,20 @@ export default function Workshops() {
       <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug max-w-[75ch]">
         <strong>Buche deinen Termin hier:</strong>
       </p>
+
+      {/* 🟦 ACUITY MINIMAL EMBED — UPDATED */}
+<div className="w-full flex justify-center mt-12">
+  <iframe
+    src="https://app.acuityscheduling.com/schedule.php?owner=37122766&appointmentType=84190159&calendarID=12833791&style=plain"
+    width="100%"
+    height="900"
+    frameBorder="0"
+    title="Workshop Booking"
+    className="max-w-[900px] w-full"
+  ></iframe>
+</div>
+{/* 🟦 END ACUITY EMBED */}
+
 
       {workshops.length === 0 ? (
         <p className="text-[18px] leading-[26px] md:text-xl pl-[4px]">
@@ -184,8 +195,6 @@ export default function Workshops() {
                         <div
                           className="text-[18px] leading-relaxed"
                           dangerouslySetInnerHTML={{ __html: w.description || "" }}
-
-
                         />
                         {w.bring && (
                           <p>
