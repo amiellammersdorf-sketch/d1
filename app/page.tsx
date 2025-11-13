@@ -127,27 +127,28 @@ export default function Page() {
         </section>
       </div>
 
-      {/* Full-width gallery strip with floating LegalAccordion */}
-<section className="relative box-border border-t-[6px] border-brand">
-  {/* 🖼️ Gallery content — full height responsive */}
-  <div className="overflow-hidden">
-    <Gallery
-  section={gallerySlugFor(activeId)}
-  count={gallerySlugFor(activeId) === "siebdruck" ? 4 :
-    gallerySlugFor(activeId) === "about" ? 4 :
-gallerySlugFor(activeId) === "faq" ? 4 :
-    gallerySlugFor(activeId) === "workshops" ? 4 : 3} // 👈 custom count for Siebdruck
-  className="w-full h-auto"
-  
-/>
+      {/* Full-width gallery with floating legal accordion */}
+<div className="relative w-full h-screen overflow-hidden border-t-[6px] border-brand">
 
-  </div>
 
-  {/* 🧾 Floating Legal links overlay (no borders) */}
-  <div className="absolute bottom-0 left-0 w-full z-40 flex justify-center bg-transparent pb-4">
+  {/* GALLERY (full area) */}
+  <Gallery
+    section={gallerySlugFor(activeId)}
+    count={
+      gallerySlugFor(activeId) === "siebdruck" ? 4 :
+      gallerySlugFor(activeId) === "about" ? 4 :
+      gallerySlugFor(activeId) === "faq" ? 4 :
+      gallerySlugFor(activeId) === "workshops" ? 4 : 3
+    }
+    className="w-full h-full"
+  />
+
+  {/* LEGAL ACCORDION (floating over the gallery) */}
+  <div className="absolute bottom-0 left-0 w-full z-50 flex justify-center pb-4">
     <LegalAccordion />
   </div>
-</section>
+
+</div>
 
 
     </main>
