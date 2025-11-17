@@ -90,7 +90,7 @@ export default function Workshops() {
       </p>
 
       <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug max-w-[75ch]">
-        <strong>Buche deinen Termin hier:</strong>
+        <strong>Jetzt buchen:</strong>
       </p>
 
       {/* 🟦 ACUITY MINIMAL EMBED — UPDATED */}
