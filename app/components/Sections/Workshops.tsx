@@ -109,7 +109,7 @@ export default function Workshops() {
 
       {workshops.length === 0 ? (
         <p className="text-[18px] leading-[26px] md:text-xl pl-[4px]">
-          Momentan sind keine Workshops verfügbar.
+        
         </p>
       ) : (
         <div className="space-y-16 w-full">
