@@ -16,6 +16,7 @@ export default function RootLayout({
     <html lang="de">
       <head>
         <script
+          key="stripe-buy-button"
           async
           src="https://js.stripe.com/v3/buy-button.js"
         ></script>
