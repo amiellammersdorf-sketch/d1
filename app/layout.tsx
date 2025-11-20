@@ -14,6 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
+      <head>
+        <script
+          async
+          src="https://js.stripe.com/v3/buy-button.js"
+        ></script>
+      </head>
+
       <body className="font-akkurat text-brand bg-white">
         {children}
       </body>
