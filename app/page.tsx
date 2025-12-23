@@ -19,9 +19,10 @@ import LogoButton from "./components/LogoButton";
 
 const SECTION_TO_GALLERY: Record<string, string> = {
   siebdruck: "siebdruck",
+  arbeitskleidung: "siebdruck", // reuse Siebdruck gallery
   workshops: "workshops",
   events: "events",
-  "live-printing": "liveprinting",   // ✅ wrapped in quotes
+  "live-printing": "liveprinting",
   "offene-werkstatt": "offene",
   kontakt: "kontakt",
   "ueber-uns": "about",
