@@ -28,13 +28,15 @@ const gallerySlugFor = (id: string) => SECTION_TO_GALLERY[id] ?? id;
 const COMPONENTS: Record<string, React.ComponentType> = {
   faq: Faq,
   siebdruck: Siebdruck,
+  arbeitskleidung: ArbeitskleidungCorporateWear,
   workshops: Workshops,
   events: Events,
-  "live-printing": LivePrinting, // ✅ make sure no quotes here
+  "live-printing": LivePrinting,
   "offene-werkstatt": OffeneWerkstatt,
   kontakt: Kontakt,
   "ueber-uns": UeberUns,
 };
+
 
 
     
