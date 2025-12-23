@@ -5,6 +5,7 @@ import Gallery from "./Gallery";
 import React from "react";
 import Faq from "./Sections/Faq";
 import Siebdruck from "./Sections/Siebdruck";
+import ArbeitskleidungCorporateWear from "./Sections/ArbeitskleidungCorporateWear";
 import Workshops from "./Sections/Workshops";
 import Events from "./Sections/Events";
 import LivePrinting from "./Sections/LivePrinting";
