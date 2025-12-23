@@ -77,7 +77,7 @@ export default function Workshops() {
   return (
     <div className="space-y-4 text-[#021695] w-full">
       <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
-        Workshops
+        WORKSHOPS
       </h2>
 
       <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug max-w-[75ch]">
