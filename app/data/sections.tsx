@@ -1,4 +1,5 @@
 import Siebdruck from "../components/Sections/Siebdruck";
+import ArbeitskleidungCorporateWear from "../components/Sections/ArbeitskleidungCorporateWear";
 import Workshops from "../components/Sections/Workshops";
 import Events from "../components/Sections/Events";
 import LivePrinting from "../components/Sections/LivePrinting";
