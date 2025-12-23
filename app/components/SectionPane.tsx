@@ -51,6 +51,7 @@ export default function SectionPane({ activeId }: { activeId: string }) {
 const isFAQ = activeId === "faq" || activeId === "faq2";
 const isMediumWide =
   activeId === "siebdruck" ||
+  activeId === "arbeitskleidung" ||
   activeId === "events" ||
   activeId === "live-printing" ||
   activeId === "offene-werkstatt" ||
