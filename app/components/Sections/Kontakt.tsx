@@ -144,6 +144,13 @@ export default function Kontakt() {
   >
     +41 76 685 30 19
   </a>
+
+  <a
+    href="mailto:info@d1studio.ch"
+    className="font-normal hover:font-bold transition-all cursor-pointer block"
+  >
+    info@d1studio.ch
+  </a>
 </p>
 
 
