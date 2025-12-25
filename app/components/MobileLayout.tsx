@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Siebdruck from "../components/Sections/Siebdruck";
+import ArbeitskleidungCorporateWear from "../components/Sections/ArbeitskleidungCorporateWear";
 import Workshops from "../components/Sections/Workshops";
 import Events from "../components/Sections/Events";
 import LivePrinting from "../components/Sections/LivePrinting";
@@ -14,6 +15,7 @@ import LogoButton from "../components/LogoButton";
 
 const SECTIONS = [
   { id: "siebdruck", title: "SIEBDRUCK" },
+  { id: "arbeitskleidung-workwear", title: "ARBEITSKLEIDUNG & WORKWEAR" },
   { id: "workshops", title: "WORKSHOPS" },
   { id: "events", title: "EVENTS" },
   { id: "live-printing", title: "LIVE PRINTING" },
