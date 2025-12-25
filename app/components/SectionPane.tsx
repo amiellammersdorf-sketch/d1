@@ -15,6 +15,7 @@ import UeberUns from "./Sections/UeberUns";
 
 const SECTION_TO_GALLERY: Record<string, string> = {
   siebdruck: "siebdruck",
+  "arbeitskleidung-workwear": "workwear",
   workshops: "workshops",
   events: "events",
   "live-printing": "liveprinting",  // ✅ correct one
