@@ -29,7 +29,7 @@ const gallerySlugFor = (id: string) => SECTION_TO_GALLERY[id] ?? id;
 const COMPONENTS: Record<string, React.ComponentType> = {
   faq: Faq,
   siebdruck: Siebdruck,
-  arbeitskleidung: ArbeitskleidungCorporateWear,
+  "arbeitskleidung-workwear": ArbeitskleidungCorporateWear,
   workshops: Workshops,
   events: Events,
   "live-printing": LivePrinting,
@@ -52,7 +52,7 @@ export default function SectionPane({ activeId }: { activeId: string }) {
 const isFAQ = activeId === "faq" || activeId === "faq2";
 const isMediumWide =
   activeId === "siebdruck" ||
-  activeId === "arbeitskleidung" ||
+  activeId === "arbeitskleidung-workwear" ||
   activeId === "events" ||
   activeId === "live-printing" ||
   activeId === "offene-werkstatt" ||
