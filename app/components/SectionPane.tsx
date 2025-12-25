@@ -15,10 +15,10 @@ import UeberUns from "./Sections/UeberUns";
 
 const SECTION_TO_GALLERY: Record<string, string> = {
   siebdruck: "siebdruck",
-  "arbeitskleidung-workwear": "ArbeitskleidungCorporateWear",
+  "arbeitskleidung-workwear": "workwear",
   workshops: "workshops",
   events: "events",
-  "live-printing": "liveprinting",  // ✅ correct one
+  "live-printing": "liveprinting",
   "offene-werkstatt": "offene",
   kontakt: "kontakt",
   "ueber-uns": "about",
