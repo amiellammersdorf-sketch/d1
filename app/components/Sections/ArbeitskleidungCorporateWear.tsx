@@ -11,15 +11,23 @@ export default function ArbeitskleidungCorporateWear() {
 
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
         <p>
-          Gute Workwear ist mehr als funktional – sie stärkt den Teamspirit und
-          macht eure Marke sichtbar.
+          Funktionale und konsistente Arbeitskleidung ist ein wichtiger Bestandteil eines
+          professionellen Unternehmensauftritts. Sie sorgt für Wiedererkennbarkeit, 
+          unterstützt den Arbeitsalltag und gewährleistet ein einheitliches Erscheinungsbild 
+          über Teams und Einsätze hinweg.
         </p>
 
         <p>
-          Ob T-Shirts, Hoodies, Softshelljacken, Schürzen oder individuelle
-          Sonderanfertigungen – Wir gestalten und bedrucken eure Workwear 
-          direkt bei uns im Studio in St. Gallen. Dank lokaler Produktion sind kurze Wege 
-          und schnelle Lieferzeiten möglich – auch bei kurzfristigen Projekten.
+          Bei D1 bedrucken wir Arbeits- und Corporate Wear für Unternehmen, Vereine und 
+          Organisationen. Wir arbeiten mit bewährten Textilien und setzen Logos, 
+          Schriftzüge und Grafiken präzise und langlebig um – geeignet für den 
+          täglichen Einsatz und häufiges Waschen.
+        </p>
+
+        <p>
+          Durch die lokale Umsetzung in St. Gallen sind kurze Reaktionszeiten, 
+          flexible Nachbestellungen und eine schnelle Abwicklung möglich – 
+          auch bei zeitkritischen Projekten oder kleineren Serien.
         </p>
 
         <p>
@@ -28,7 +36,7 @@ export default function ArbeitskleidungCorporateWear() {
             href="mailto:info@d1studio.ch"
             className="hover:font-bold transition-all"
           >
-            Lasst uns zusammenarbeiten
+            Kontakt aufnehmen
           </a>
         </p>
       </div>
