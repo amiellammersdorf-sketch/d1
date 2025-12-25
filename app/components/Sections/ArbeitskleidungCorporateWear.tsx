@@ -17,7 +17,9 @@ export default function ArbeitskleidungCorporateWear() {
 
         <p>
           Ob T-Shirts, Hoodies, Softshelljacken, Schürzen oder individuelle
-          Sonderanfertigungen – wir produzieren lokal in St. Gallen.
+          Sonderanfertigungen – Wir gestalten und bedrucken eure Workwear 
+          direkt bei uns im Studio in St. Gallen. Dank lokaler Produktion sind kurze Wege 
+          und schnelle Lieferzeiten möglich – auch bei kurzfristigen Projekten.
         </p>
 
         <p>
