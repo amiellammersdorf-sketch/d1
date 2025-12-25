@@ -4,9 +4,9 @@ export default function ArbeitskleidungCorporateWear() {
   return (
     <div className="text-[#021695] space-y-10">
       {/* Section title */}
-      <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
-        ARBEITSKLEIDUNG & CORPORATE WEAR
-      </h2>
+      <h2 className="block md:block text-[28px] md:text-[38px] font-bold tracking-wide">
+  ARBEITSKLEIDUNG & CORPORATE WEAR
+</h2>
 
       {/* Text content */}
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug relative z-10">
