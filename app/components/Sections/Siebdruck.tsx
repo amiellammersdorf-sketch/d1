@@ -4,7 +4,7 @@ import Gallery from "../Gallery"; // correct path
 
 export default function Siebdruck() {
   return (
-    <div className="text-[#021695] space-y-10">
+    <div className="text-[#021695] space-y-4">
       {/* Title */}
       <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
         SIEBDRUCK
