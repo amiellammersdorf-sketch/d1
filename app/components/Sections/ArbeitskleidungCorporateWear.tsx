@@ -4,7 +4,7 @@ import Gallery from "../Gallery";
 
 export default function ArbeitskleidungCorporateWear() {
   return (
-    <div className="text-[#021695] space-y-10">
+    <div className="text-[#021695] space-y-4">
       <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
   ARBEITSKLEIDUNG & CORPORATE WEAR
 </h2>
