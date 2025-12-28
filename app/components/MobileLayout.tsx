@@ -202,11 +202,11 @@ function AccordionItem({
   return (
     <div ref={sectionRef} className="border-b-[3px] border-[#021695] bg-white">
       <button
-        onClick={onToggle}
-        className={`w-full text-left text-[38px] px-4 py-3 ${
-          isOpen ? "font-bold" : "hover:font-bold"
-        }`}
-      >
+  onClick={onToggle}
+  className={`w-full text-left text-[38px] leading-[1.15] px-4 py-5 ${
+    isOpen ? "font-bold" : "hover:font-bold"
+  }`}
+>
         {title}
       </button>
 
