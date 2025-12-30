@@ -5,6 +5,10 @@ import "./global.css";
 export const metadata: Metadata = {
   title: "D1",
   description: "D1 Print Studio",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +25,6 @@ export default function RootLayout({
           src="https://js.stripe.com/v3/buy-button.js"
         ></script>
       </head>
-
       <body className="font-akkurat text-brand bg-white">
         {children}
       </body>
