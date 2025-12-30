@@ -73,6 +73,7 @@ useEffect(() => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       setActiveId("siebdruck");
+      window.history.pushState(null, "", "#siebdruck");
     }
   }}
   className="cursor-pointer transition-all"
