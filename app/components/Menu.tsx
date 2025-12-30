@@ -17,15 +17,17 @@ export default function Menu({ activeId, onSelect }: Props) {
       <ul className="space-y-1 pl-0 list-none">
         {SECTIONS.map(({ id, label }: Section) => (
           <li key={id}>
-            <a
-  href={`#${id}`}
-  onClick={() => onSelect(id)}
-  className={`block w-full text-left text-[38px] leading-tight text-[#021695]
+           <button
+  onClick={() => {
+    onSelect(id);
+    window.history.pushState(null, "", `#${id}`);
+  }}
+  className={`w-full text-left text-[38px] leading-tight text-[#021695]
   transition outline-none focus:outline-none
   ${activeId === id ? "font-bold" : "hover:font-bold"}`}
 >
   {label}
-</a>
+</button>
           </li>
         ))}
       </ul>
