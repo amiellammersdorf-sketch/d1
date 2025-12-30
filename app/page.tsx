@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Menu from "./components/Menu";
 import SectionPane from "./components/SectionPane";
 import { SECTIONS } from "./data/sections";
@@ -34,6 +34,16 @@ const gallerySlugFor = (id: string) => SECTION_TO_GALLERY[id] ?? id;
 
 export default function Page() {
   const [activeId, setActiveId] = useState(SECTIONS[0]?.id ?? "");
+
+useEffect(() => {
+  const hash = window.location.hash.replace("#", "");
+  if (!hash) return;
+
+  const isValid = SECTIONS.some(section => section.id === hash);
+  if (isValid) {
+    setActiveId(hash);
+  }
+}, []);
 
   return (
   <>
