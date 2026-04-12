@@ -1,34 +1,57 @@
+import Image from "next/image";
+
 export default function PrintOfTheMonth() {
   return (
     <div className="p-6 md:p-12">
 
       {/* HEADER */}
       <div className="mb-16 max-w-xl">
-        <h1 className="text-3xl font-medium mb-4">
+        <h1 className="text-d1-blue text-[32px] leading-tight mb-4">
           Print of the Month
         </h1>
 
-        <p className="text-neutral-600 mb-4">
+        <p className="text-d1-blue text-[16px] mb-4">
           Jeden Monat ein neues Motiv – exklusiv im D1 Studio in St. Gallen gedruckt.
         </p>
 
-        {/* LINK TO FULL PAGE */}
-        <a href="/potm" className="text-sm underline">
+        <a href="/potm" className="text-d1-blue text-[16px] underline">
           Zum Print →
         </a>
       </div>
 
       {/* CONTENT */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
-        {/* LEFT: IMAGE */}
-        <div className="space-y-6">
-          <img src="/shirt-main.jpg" className="w-full" />
-
-          <div className="grid grid-cols-2 gap-4">
-            <img src="/shirt-detail.jpg" className="w-full" />
-            <img src="/shirt-back.jpg" className="w-full" />
-          </div>
+        {/* LEFT: IMAGE GRID */}
+        <div className="grid grid-cols-2 gap-4">
+          <Image
+            src="/shirt-main.jpg"
+            alt="Print of the Month"
+            width={1200}
+            height={1200}
+            className="w-full h-auto object-cover"
+          />
+          <Image
+            src="/shirt-detail.jpg"
+            alt="Detail"
+            width={1200}
+            height={1200}
+            className="w-full h-auto object-cover"
+          />
+          <Image
+            src="/shirt-back.jpg"
+            alt="Back print"
+            width={1200}
+            height={1200}
+            className="w-full h-auto object-cover"
+          />
+          <Image
+            src="/shirt-extra.jpg"
+            alt="Extra view"
+            width={1200}
+            height={1200}
+            className="w-full h-auto object-cover"
+          />
         </div>
 
         {/* RIGHT: INFO */}
@@ -36,32 +59,34 @@ export default function PrintOfTheMonth() {
 
           {/* TITLE + PRICE */}
           <div className="flex justify-between items-start">
-            <h2 className="text-2xl font-medium">
+            <h2 className="text-d1-blue text-[20px]">
               April Drop — Studio Tee
             </h2>
-            <p>CHF 45.–</p>
+            <p className="text-d1-blue text-[16px]">
+              CHF 45.–
+            </p>
           </div>
+
+          {/* DESCRIPTION */}
+          <p className="text-d1-blue text-[16px] max-w-md">
+            Limitierter Siebdruck auf hochwertigem Shirt.
+            Von Hand gedruckt im D1 Studio.
+          </p>
 
           {/* SIZES */}
           <div className="flex gap-2">
             {["S", "M", "L", "XL"].map((size) => (
               <button
                 key={size}
-                className="border px-4 py-2 text-sm hover:bg-black hover:text-white transition"
+                className="border border-d1-blue px-3 py-1 text-d1-blue text-[14px] hover:bg-d1-blue hover:text-white transition"
               >
                 {size}
               </button>
             ))}
           </div>
 
-          {/* DESCRIPTION */}
-          <p className="text-neutral-700 max-w-md">
-            Limitierter Siebdruck auf hochwertigem Shirt.
-            Von Hand gedruckt im D1 Studio.
-          </p>
-
           {/* DETAILS */}
-          <ul className="text-sm text-neutral-600 space-y-1">
+          <ul className="text-d1-blue text-[14px] space-y-1">
             <li>1–2 Farben Siebdruck</li>
             <li>Gedruckt in St. Gallen</li>
             <li>Nur diesen Monat erhältlich</li>
@@ -71,13 +96,14 @@ export default function PrintOfTheMonth() {
           <a
             href="YOUR_STRIPE_LINK"
             target="_blank"
-            className="border px-6 py-3 w-fit hover:bg-black hover:text-white transition mt-2"
+            rel="noopener noreferrer"
+            className="text-d1-blue text-[16px] underline mt-2"
           >
-            Jetzt bestellen
+            Jetzt bestellen →
           </a>
 
           {/* URGENCY */}
-          <p className="text-sm">
+          <p className="text-d1-blue text-[14px]">
             ⏳ Nur bis Ende Monat verfügbar
           </p>
 
