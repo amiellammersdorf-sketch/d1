@@ -7,9 +7,11 @@ import OffeneWerkstatt from "../components/Sections/OffeneWerkstatt";
 import Kontakt from "../components/Sections/Kontakt";
 import UeberUns from "../components/Sections/UeberUns";
 import Faq from "../components/Sections/Faq";
+import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth";
 
 export const SECTIONS = [
   { id: "siebdruck", label: "SIEBDRUCK", component: <Siebdruck /> },
+  { id: "potm", label: "PRINT OF THE MONTH", component: <PrintOfTheMonth /> },
   { id: "arbeitskleidung-workwear", label: "ARBEITSKLEIDUNG & CORPORATE WEAR", component: <ArbeitskleidungCorporateWear />, },
   { id: "workshops", label: "WORKSHOPS", component: <Workshops /> },
   { id: "events", label: "EVENTS", component: <Events /> },
