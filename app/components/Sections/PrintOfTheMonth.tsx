@@ -2,13 +2,11 @@ import Image from "next/image";
 
 export default function PrintOfTheMonth() {
   return (
-    <div className="p-6 md:p-12">
-
-      {/* HEADER */}
-      <div className="mb-16 max-w-xl">
-        <h1 className="text-d1-blue text-[32px] leading-tight mb-4">
-          Print of the Month
-        </h1>
+    <div className="text-[#021695] space-y-4">
+      {/* Title */}
+      <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
+        POMT
+      </h2>
 
         <p className="text-d1-blue text-[16px] mb-4">
           Jeden Monat ein neues Motiv – exklusiv im D1 Studio in St. Gallen gedruckt.
