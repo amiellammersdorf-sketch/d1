@@ -10,7 +10,6 @@ import Faq from "../components/Sections/Faq";
 
 export const SECTIONS = [
   { id: "siebdruck", label: "SIEBDRUCK", component: <Siebdruck /> },
-  { id: "potm", label: "PRINT OF THE MONTH", component: PrintOfTheMonth },
   { id: "arbeitskleidung-workwear", label: "ARBEITSKLEIDUNG & CORPORATE WEAR", component: <ArbeitskleidungCorporateWear />, },
   { id: "workshops", label: "WORKSHOPS", component: <Workshops /> },
   { id: "events", label: "EVENTS", component: <Events /> },
