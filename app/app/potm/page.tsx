@@ -1,1 +1,0 @@
-app/potm/page.tsx
