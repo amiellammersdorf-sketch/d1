@@ -1,4 +1,15 @@
+import Image from "next/image";
+
 export default function POTMPage() {
+  const month = "april";
+
+  // 👉 adjust this number OR make it dynamic later
+  const imageCount = 2;
+
+  const images = Array.from({ length: imageCount }, (_, i) =>
+    `/potm/potm_${month}_${i + 1}.jpg`
+  );
+
   return (
     <div className="p-12">
 
@@ -13,21 +24,54 @@ export default function POTMPage() {
       </div>
 
       {/* Content */}
-      <div className="grid grid-cols-2 gap-12">
-        
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+
         {/* Images */}
-        <div className="space-y-6">
-          <img src="/shirt-main.jpg" className="w-full" />
-          
-          <div className="grid grid-cols-2 gap-4">
-            <img src="/shirt-detail.jpg" className="w-full" />
-            <img src="/shirt-back.jpg" className="w-full" />
-          </div>
+        <div>
+          {images.length === 1 && (
+            <Image
+              src={images[0]}
+              alt="POTM"
+              width={1200}
+              height={1200}
+              className="w-full h-auto object-cover"
+            />
+          )}
+
+          {images.length === 2 && (
+            <div className="grid grid-cols-2 gap-4">
+              {images.map((src, i) => (
+                <Image
+                  key={i}
+                  src={src}
+                  alt={`POTM ${i}`}
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto object-cover aspect-square"
+                />
+              ))}
+            </div>
+          )}
+
+          {images.length >= 3 && (
+            <div className="grid grid-cols-2 gap-4">
+              {images.map((src, i) => (
+                <Image
+                  key={i}
+                  src={src}
+                  alt={`POTM ${i}`}
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto object-cover aspect-square"
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Info */}
         <div className="flex flex-col gap-6">
-          
+
           <div className="flex justify-between items-start">
             <h2 className="text-2xl font-medium">
               April Drop — Studio Tee
@@ -64,6 +108,7 @@ export default function POTMPage() {
           <a
             href="YOUR_STRIPE_LINK"
             target="_blank"
+            rel="noopener noreferrer"
             className="border px-8 py-3 hover:bg-black hover:text-white transition w-fit mt-4"
           >
             Jetzt bestellen
