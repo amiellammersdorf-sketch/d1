@@ -35,19 +35,10 @@ export default function PrintOfTheMonth() {
           Jeden Monat ein neues Motiv – exklusiv im D1 Studio in St. Gallen gedruckt.
         </p>
 
-        <p>
-          →{" "}
-          <a
-            href="/potm"
-            className="hover:font-bold transition-all duration-200"
-          >
-            Zum Print
-          </a>
-        </p>
       </div>
 
       {/* MAIN GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-16 items-start">
 
         {/* LEFT: IMAGE */}
         <div className="relative">
