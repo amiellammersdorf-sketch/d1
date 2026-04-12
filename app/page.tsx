@@ -19,7 +19,8 @@ import LogoButton from "./components/LogoButton";
 
 const SECTION_TO_GALLERY: Record<string, string> = {
   siebdruck: "siebdruck",
-  "arbeitskleidung-workwear": "siebdruck", // reuse Siebdruck gallery
+  potm: "siebdruck", // ← ADD THIS HERE
+  "arbeitskleidung-workwear": "siebdruck",
   workshops: "workshops",
   events: "events",
   "live-printing": "liveprinting",
