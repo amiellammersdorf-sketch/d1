@@ -7,7 +7,6 @@ import OffeneWerkstatt from "../components/Sections/OffeneWerkstatt";
 import Kontakt from "../components/Sections/Kontakt";
 import UeberUns from "../components/Sections/UeberUns";
 import Faq from "../components/Sections/Faq";
-import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth";
 
 export const SECTIONS = [
   { id: "siebdruck", label: "SIEBDRUCK", component: <Siebdruck /> },
