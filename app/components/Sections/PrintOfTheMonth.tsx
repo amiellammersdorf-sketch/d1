@@ -1,18 +1,29 @@
 import Image from "next/image";
 
 export default function PrintOfTheMonth() {
-  return (
-    <div className="text-[#021695] space-y-4">
-      {/* Title */}
-      <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
-        POMT
-      </h2>
 
-        <p className="text-d1-blue text-[16px] mb-4">
+  // 🔥 CHANGE THIS ONLY EACH MONTH
+  const month = "april";
+  const imageCount = 2;
+
+  const images = Array.from({ length: imageCount }, (_, i) =>
+    `/potm/${month}/potm_${month}_${i + 1}.jpg`
+  );
+
+  return (
+    <div className="p-6 md:p-12 text-[#021695]">
+
+      {/* HEADER */}
+      <div className="mb-16 max-w-xl space-y-4">
+        <h1 className="text-[32px] leading-tight">
+          Print of the Month
+        </h1>
+
+        <p className="text-[16px]">
           Jeden Monat ein neues Motiv – exklusiv im D1 Studio in St. Gallen gedruckt.
         </p>
 
-        <a href="/potm" className="text-d1-blue text-[16px] underline">
+        <a href="/potm" className="text-[16px] underline">
           Zum Print →
         </a>
       </div>
@@ -21,35 +32,31 @@ export default function PrintOfTheMonth() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
         {/* LEFT: IMAGE GRID */}
-        <div className="grid grid-cols-2 gap-4">
-          <Image
-            src="/shirt-main.jpg"
-            alt="Print of the Month"
-            width={1200}
-            height={1200}
-            className="w-full h-auto object-cover"
-          />
-          <Image
-            src="/shirt-detail.jpg"
-            alt="Detail"
-            width={1200}
-            height={1200}
-            className="w-full h-auto object-cover"
-          />
-          <Image
-            src="/shirt-back.jpg"
-            alt="Back print"
-            width={1200}
-            height={1200}
-            className="w-full h-auto object-cover"
-          />
-          <Image
-            src="/shirt-extra.jpg"
-            alt="Extra view"
-            width={1200}
-            height={1200}
-            className="w-full h-auto object-cover"
-          />
+        <div>
+          {images.length === 1 && (
+            <Image
+              src={images[0]}
+              alt="POTM"
+              width={1200}
+              height={1200}
+              className="w-full h-auto object-cover"
+            />
+          )}
+
+          {images.length >= 2 && (
+            <div className="grid grid-cols-2 gap-4">
+              {images.map((src, i) => (
+                <Image
+                  key={i}
+                  src={src}
+                  alt={`POTM ${month} ${i + 1}`}
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto object-cover aspect-square"
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* RIGHT: INFO */}
@@ -57,16 +64,16 @@ export default function PrintOfTheMonth() {
 
           {/* TITLE + PRICE */}
           <div className="flex justify-between items-start">
-            <h2 className="text-d1-blue text-[20px]">
+            <h2 className="text-[20px]">
               April Drop — Studio Tee
             </h2>
-            <p className="text-d1-blue text-[16px]">
+            <p className="text-[16px]">
               CHF 45.–
             </p>
           </div>
 
           {/* DESCRIPTION */}
-          <p className="text-d1-blue text-[16px] max-w-md">
+          <p className="text-[16px] max-w-md">
             Limitierter Siebdruck auf hochwertigem Shirt.
             Von Hand gedruckt im D1 Studio.
           </p>
@@ -76,7 +83,7 @@ export default function PrintOfTheMonth() {
             {["S", "M", "L", "XL"].map((size) => (
               <button
                 key={size}
-                className="border border-d1-blue px-3 py-1 text-d1-blue text-[14px] hover:bg-d1-blue hover:text-white transition"
+                className="border border-[#021695] px-3 py-1 text-[14px] hover:bg-[#021695] hover:text-white transition"
               >
                 {size}
               </button>
@@ -84,7 +91,7 @@ export default function PrintOfTheMonth() {
           </div>
 
           {/* DETAILS */}
-          <ul className="text-d1-blue text-[14px] space-y-1">
+          <ul className="text-[14px] space-y-1">
             <li>1–2 Farben Siebdruck</li>
             <li>Gedruckt in St. Gallen</li>
             <li>Nur diesen Monat erhältlich</li>
@@ -95,13 +102,13 @@ export default function PrintOfTheMonth() {
             href="YOUR_STRIPE_LINK"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-d1-blue text-[16px] underline mt-2"
+            className="text-[16px] underline mt-2"
           >
             Jetzt bestellen →
           </a>
 
           {/* URGENCY */}
-          <p className="text-d1-blue text-[14px]">
+          <p className="text-[14px]">
             ⏳ Nur bis Ende Monat verfügbar
           </p>
 
