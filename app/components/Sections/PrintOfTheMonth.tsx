@@ -1,8 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function PrintOfTheMonth() {
-
-  // 🔥 CHANGE THIS ONLY EACH MONTH
   const month = "april";
   const imageCount = 2;
 
@@ -10,111 +11,124 @@ export default function PrintOfTheMonth() {
     `/potm/${month}/potm_${month}_${i + 1}.jpg`
   );
 
+  const [index, setIndex] = useState(0);
+
+  const prev = () => {
+    setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const next = () => {
+    setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
   return (
-    <div className="p-6 md:p-12 text-[#021695]">
+    <div className="text-[#021695] space-y-8">
 
-      {/* HEADER */}
-      <div className="mb-16 max-w-xl space-y-4">
-        <h1 className="text-[32px] leading-tight">
-          Print of the Month
-        </h1>
+      {/* TITLE */}
+      <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
+        PRINT OF THE MONTH
+      </h2>
 
-        <p className="text-[16px]">
+      {/* INTRO TEXT */}
+      <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug max-w-xl">
+        <p>
           Jeden Monat ein neues Motiv – exklusiv im D1 Studio in St. Gallen gedruckt.
         </p>
 
-        <a href="/potm" className="text-[16px] underline">
-          Zum Print →
-        </a>
+        <p>
+          →{" "}
+          <a
+            href="/potm"
+            className="hover:font-bold transition-all duration-200"
+          >
+            Zum Print
+          </a>
+        </p>
       </div>
 
-      {/* CONTENT */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      {/* MAIN GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 
-        {/* LEFT: IMAGE GRID */}
-        <div>
-          {images.length === 1 && (
-            <Image
-              src={images[0]}
-              alt="POTM"
-              width={1200}
-              height={1200}
-              className="w-full h-auto object-cover"
-            />
-          )}
+        {/* LEFT: IMAGE */}
+        <div className="relative">
 
-          {images.length >= 2 && (
-            <div className="grid grid-cols-2 gap-4">
-              {images.map((src, i) => (
-                <Image
-                  key={i}
-                  src={src}
-                  alt={`POTM ${month} ${i + 1}`}
-                  width={1200}
-                  height={1200}
-                  className="w-full h-auto object-cover aspect-square"
-                />
-              ))}
-            </div>
+          <Image
+            src={images[index]}
+            alt="POTM"
+            width={1200}
+            height={1200}
+            className="w-full h-auto object-cover aspect-square"
+          />
+
+          {/* ARROWS */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={prev}
+                className="absolute left-2 top-1/2 -translate-y-1/2 text-[24px]"
+              >
+                ←
+              </button>
+
+              <button
+                onClick={next}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-[24px]"
+              >
+                →
+              </button>
+            </>
           )}
         </div>
 
-        {/* RIGHT: INFO */}
-        <div className="flex flex-col gap-6">
+        {/* RIGHT: TEXT */}
+        <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug max-w-md">
 
-          {/* TITLE + PRICE */}
-          <div className="flex justify-between items-start">
-            <h2 className="text-[20px]">
-              April Drop — Studio Tee
-            </h2>
-            <p className="text-[16px]">
-              CHF 45.–
+          <div>
+            <p>
+              <strong>April Drop — Studio Tee</strong>
             </p>
+            <p>CHF 45.–</p>
           </div>
 
-          {/* DESCRIPTION */}
-          <p className="text-[16px] max-w-md">
-            Limitierter Siebdruck auf hochwertigem Shirt.
-            Von Hand gedruckt im D1 Studio.
+          <p>
+            Limitierter Siebdruck auf hochwertigem Shirt. Von Hand gedruckt im D1 Studio.
           </p>
 
           {/* SIZES */}
-          <div className="flex gap-2">
+          <div className="flex gap-3 text-[16px]">
             {["S", "M", "L", "XL"].map((size) => (
               <button
                 key={size}
-                className="border border-[#021695] px-3 py-1 text-[14px] hover:bg-[#021695] hover:text-white transition"
+                className="border border-[#021695] px-3 py-1 hover:bg-[#021695] hover:text-white transition"
               >
                 {size}
               </button>
             ))}
           </div>
 
-          {/* DETAILS */}
-          <ul className="text-[14px] space-y-1">
-            <li>1–2 Farben Siebdruck</li>
-            <li>Gedruckt in St. Gallen</li>
-            <li>Nur diesen Monat erhältlich</li>
-          </ul>
+          <div className="text-[16px] space-y-1">
+            <p>1–2 Farben Siebdruck</p>
+            <p>Gedruckt in St. Gallen</p>
+            <p>Nur diesen Monat erhältlich</p>
+          </div>
 
-          {/* CTA */}
-          <a
-            href="YOUR_STRIPE_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[16px] underline mt-2"
-          >
-            Jetzt bestellen →
-          </a>
+          <p>
+            →{" "}
+            <a
+              href="YOUR_STRIPE_LINK"
+              target="_blank"
+              className="hover:font-bold transition-all duration-200"
+            >
+              Jetzt bestellen
+            </a>
+          </p>
 
-          {/* URGENCY */}
           <p className="text-[14px]">
             ⏳ Nur bis Ende Monat verfügbar
           </p>
 
         </div>
       </div>
-
     </div>
   );
 }
