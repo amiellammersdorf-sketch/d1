@@ -1,4 +1,3 @@
-// app/components/SectionPane.tsx
 "use client";
 
 import Gallery from "./Gallery";
@@ -14,9 +13,12 @@ import Kontakt from "./Sections/Kontakt";
 import UeberUns from "./Sections/UeberUns";
 import PrintOfTheMonth from "./Sections/PrintOfTheMonth";
 
+// 🔥 TOGGLE
+const SHOW_POTM = false;
+
 const SECTION_TO_GALLERY: Record<string, string> = {
   siebdruck: "siebdruck",
-  potm: "siebdruck",
+  ...(SHOW_POTM ? { potm: "siebdruck" } : {}),
   "arbeitskleidung-workwear": "siebdruck",
   workshops: "workshops",
   events: "events",
@@ -26,12 +28,13 @@ const SECTION_TO_GALLERY: Record<string, string> = {
   "ueber-uns": "about",
   faq: "faq",
 };
+
 const gallerySlugFor = (id: string) => SECTION_TO_GALLERY[id] ?? id;
 
 const COMPONENTS: Record<string, React.ComponentType> = {
   faq: Faq,
   siebdruck: Siebdruck,
-  potm: PrintOfTheMonth,
+  ...(SHOW_POTM ? { potm: PrintOfTheMonth } : {}),
   "arbeitskleidung-workwear": ArbeitskleidungCorporateWear,
   workshops: Workshops,
   events: Events,
@@ -41,33 +44,34 @@ const COMPONENTS: Record<string, React.ComponentType> = {
   "ueber-uns": UeberUns,
 };
 
-
-
-    
-
 export default function SectionPane({ activeId }: { activeId: string }) {
+
+  // 👇 block access if disabled
+  if (!SHOW_POTM && activeId === "potm") {
+    return <div className="p-6 text-[#021695]">Sektion nicht verfügbar.</div>;
+  }
+
   const Active = COMPONENTS[activeId];
+
   if (!Active) {
     return <div className="p-6 text-xl text-[#021695]">Wähle links eine Sektion.</div>;
   }
 
   // Define which sections should be wider
-const isFAQ = activeId === "faq" || activeId === "faq2";
-const isMediumWide =
-  activeId === "siebdruck" ||
-  activeId === "arbeitskleidung-workwear" ||
-  activeId === "events" ||
-  activeId === "live-printing" ||
-  activeId === "offene-werkstatt" ||
-  activeId === "kontakt" ||
-  activeId === "ueber-uns" ||
-  activeId === "workshops";
+  const isFAQ = activeId === "faq" || activeId === "faq2";
+  const isMediumWide =
+    activeId === "siebdruck" ||
+    activeId === "arbeitskleidung-workwear" ||
+    activeId === "events" ||
+    activeId === "live-printing" ||
+    activeId === "offene-werkstatt" ||
+    activeId === "kontakt" ||
+    activeId === "ueber-uns" ||
+    activeId === "workshops";
 
-// Apply different widths based on section
-let widthClass = "max-w-[56ch] md:max-w-[56ch]";
-if (isFAQ) widthClass = "max-w-[90ch] md:max-w-[90ch]";
-else if (isMediumWide) widthClass = "max-w-[80ch] md:max-w-[80ch]";
-
+  let widthClass = "max-w-[56ch] md:max-w-[56ch]";
+  if (isFAQ) widthClass = "max-w-[90ch] md:max-w-[90ch]";
+  else if (isMediumWide) widthClass = "max-w-[80ch] md:max-w-[80ch]";
 
   return (
     <div className="p-6">
