@@ -22,70 +22,63 @@ export default function PrintOfTheMonth() {
   };
 
   return (
-    <div className="text-[#021695] space-y-8">
+    <div className="text-[#021695] space-y-12">
 
       {/* TITLE */}
       <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
         PRINT OF THE MONTH
       </h2>
 
-      {/* INTRO TEXT */}
+      {/* INTRO */}
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug max-w-xl">
         <p>
           Jeden Monat ein neues Motiv – exklusiv im D1 Studio in St. Gallen gedruckt.
         </p>
-
       </div>
 
-      {/* MAIN GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-16 items-start">
+      {/* 🔥 BIG IMAGE (FULL WIDTH) */}
+      <div className="relative w-full">
 
-        {/* LEFT: IMAGE */}
-        <div className="relative">
+        <Image
+          src={images[index]}
+          alt="POTM"
+          width={1600}
+          height={1600}
+          className="w-full h-auto object-cover"
+        />
 
-          <Image
-            src={images[index]}
-            alt="POTM"
-            width={1200}
-            height={1200}
-            className="w-full h-auto object-cover aspect-square"
-          />
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[28px]"
+            >
+              ←
+            </button>
 
-          {/* ARROWS */}
-          {images.length > 1 && (
-            <>
-              <button
-                onClick={prev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 text-[24px]"
-              >
-                ←
-              </button>
+            <button
+              onClick={next}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[28px]"
+            >
+              →
+            </button>
+          </>
+        )}
+      </div>
 
-              <button
-                onClick={next}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-[24px]"
-              >
-                →
-              </button>
-            </>
-          )}
-        </div>
+      {/* TEXT BLOCK */}
+      <div className="grid md:grid-cols-2 gap-12">
 
-        {/* RIGHT: TEXT */}
         <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug max-w-md">
-
-          <div>
-            <p>
-              <strong>April Drop — Studio Tee</strong>
-            </p>
-            <p>CHF 45.–</p>
-          </div>
+          <p>
+            <strong>April Drop — Studio Tee</strong>
+          </p>
+          <p>CHF 45.–</p>
 
           <p>
             Limitierter Siebdruck auf hochwertigem Shirt. Von Hand gedruckt im D1 Studio.
           </p>
 
-          {/* SIZES */}
           <div className="flex gap-3 text-[16px]">
             {["S", "M", "L", "XL"].map((size) => (
               <button
@@ -117,8 +110,8 @@ export default function PrintOfTheMonth() {
           <p className="text-[14px]">
             ⏳ Nur bis Ende Monat verfügbar
           </p>
-
         </div>
+
       </div>
     </div>
   );
