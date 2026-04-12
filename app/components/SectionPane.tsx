@@ -14,7 +14,7 @@ import UeberUns from "./Sections/UeberUns";
 import PrintOfTheMonth from "./Sections/PrintOfTheMonth";
 
 // 🔥 TOGGLE
-const SHOW_POTM = process.env.NEXT_PUBLIC_SHOW_POTM === "true";
+const SHOW_POTM = process.env.NEXT_PUBLIC_SHOW_POTM === "false";
 
 const SECTION_TO_GALLERY: Record<string, string> = {
   siebdruck: "siebdruck",
