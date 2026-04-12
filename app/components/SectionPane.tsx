@@ -12,9 +12,11 @@ import LivePrinting from "./Sections/LivePrinting";
 import OffeneWerkstatt from "./Sections/OffeneWerkstatt";
 import Kontakt from "./Sections/Kontakt";
 import UeberUns from "./Sections/UeberUns";
+import PrintOfTheMonth from "./Sections/PrintOfTheMonth";
 
 const SECTION_TO_GALLERY: Record<string, string> = {
   siebdruck: "siebdruck",
+  potm: "siebdruck",
   "arbeitskleidung-workwear": "siebdruck",
   workshops: "workshops",
   events: "events",
@@ -29,6 +31,7 @@ const gallerySlugFor = (id: string) => SECTION_TO_GALLERY[id] ?? id;
 const COMPONENTS: Record<string, React.ComponentType> = {
   faq: Faq,
   siebdruck: Siebdruck,
+  potm: PrintOfTheMonth,
   "arbeitskleidung-workwear": ArbeitskleidungCorporateWear,
   workshops: Workshops,
   events: Events,
