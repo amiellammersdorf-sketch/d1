@@ -14,11 +14,11 @@ import UeberUns from "./Sections/UeberUns";
 import PrintOfTheMonth from "./Sections/PrintOfTheMonth";
 
 // 🔥 TOGGLE
-const SHOW_POTM = process.env.NEXT_PUBLIC_SHOW_POTM === "false";
+const SHOW_POTM = true;
 
 const SECTION_TO_GALLERY: Record<string, string> = {
   siebdruck: "siebdruck",
-  ...(SHOW_POTM ? { potm: "siebdruck" } : {}),
+  potm: "siebdruck",
   "arbeitskleidung-workwear": "siebdruck",
   workshops: "workshops",
   events: "events",
@@ -34,7 +34,7 @@ const gallerySlugFor = (id: string) => SECTION_TO_GALLERY[id] ?? id;
 const COMPONENTS: Record<string, React.ComponentType> = {
   faq: Faq,
   siebdruck: Siebdruck,
-  ...(SHOW_POTM ? { potm: PrintOfTheMonth } : {}),
+  potm: PrintOfTheMonth,
   "arbeitskleidung-workwear": ArbeitskleidungCorporateWear,
   workshops: Workshops,
   events: Events,
@@ -45,11 +45,6 @@ const COMPONENTS: Record<string, React.ComponentType> = {
 };
 
 export default function SectionPane({ activeId }: { activeId: string }) {
-
-  // 👇 block access if disabled
-  if (!SHOW_POTM && activeId === "potm") {
-    return <div className="p-6 text-[#021695]">Sektion nicht verfügbar.</div>;
-  }
 
   const Active = COMPONENTS[activeId];
 
