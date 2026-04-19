@@ -1,3 +1,4 @@
+import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth";
 import Siebdruck from "../components/Sections/Siebdruck";
 import ArbeitskleidungCorporateWear from "../components/Sections/ArbeitskleidungCorporateWear";
 import Workshops from "../components/Sections/Workshops";
