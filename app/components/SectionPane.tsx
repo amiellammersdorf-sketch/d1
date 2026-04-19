@@ -11,7 +11,7 @@ import LivePrinting from "./Sections/LivePrinting";
 import OffeneWerkstatt from "./Sections/OffeneWerkstatt";
 import Kontakt from "./Sections/Kontakt";
 import UeberUns from "./Sections/UeberUns";
-import PrintOfTheMonth from "./Sections/PrintOfTheMonth";
+import PrintOfTheMonth from "./Sections/PrintOfTheMonth_WRONG";
 
 // 🔥 TOGGLE
 const SHOW_POTM = true;
