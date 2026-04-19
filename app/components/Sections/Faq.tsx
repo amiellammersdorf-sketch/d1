@@ -276,7 +276,7 @@ function FAQRow2({
         }}
       >
         <div ref={contentRef} className="mt-0">
-         <p
+         <div
   className="faq-answer text-[18px] leading-[26px] md:text-2xl md:leading-snug"
   dangerouslySetInnerHTML={{ __html: faq.answer }}
 />
