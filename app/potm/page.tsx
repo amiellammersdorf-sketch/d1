@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function POTMPage() {
-  const SHOW_POTM = process.env.NEXT_PUBLIC_SHOW_POTM === "true";
+  const SHOW_POTM = true;
 
   if (!SHOW_POTM) {
     return <div className="p-12 text-[#021695]">POTM not live</div>;
