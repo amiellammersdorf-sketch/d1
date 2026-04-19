@@ -5,29 +5,30 @@ import { useState } from "react";
 const images = [
   "/potm/april/potm_april_1.jpg",
   "/potm/april/potm_april_2.jpg",
-  "/potm/april/potm_april_3.jpg",
-  "/potm/april/potm_april_4.jpg",
 ];
 
 export default function PrintOfTheMonth() {
   const [index, setIndex] = useState(0);
 
-  const prev = () =>
-    setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
+  // ✅ LOOPING CAROUSEL (robust for any number of images)
+  const next = () => {
+    setIndex((i) => (i + 1) % images.length);
+  };
 
-  const next = () =>
-    setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
+  const prev = () => {
+    setIndex((i) => (i - 1 + images.length) % images.length);
+  };
 
   return (
     <div className="w-full max-w-5xl">
       {/* SECTION TITLE */}
-      <h1 className="text-[38px] font-bold text-[#1d4ed8] mb-6">
+      <h1 className="text-[38px] font-bold text-[#021695] mb-6">
         PRINT OF THE MONTH
       </h1>
 
       {/* PRODUCT TITLE */}
-      <h2 className="text-[22px] font-semibold mb-4">
-        DARUMA SHIRT
+      <h2 className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug relative z-10">
+        Daruma T-Shirt
       </h2>
 
       {/* IMAGE + ARROWS */}
@@ -43,7 +44,7 @@ export default function PrintOfTheMonth() {
         {/* LEFT ARROW */}
         <button
           onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 text-lg"
+          className="absolute left-2 top-1/2 -translate-y-1/2 p-3 text-3xl text-[#021695] transition duration-150 ease-out active:opacity-50"
         >
           ←
         </button>
@@ -51,23 +52,23 @@ export default function PrintOfTheMonth() {
         {/* RIGHT ARROW */}
         <button
           onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 text-lg"
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-3 text-3xl text-[#021695] transition duration-150 ease-out active:opacity-50"
         >
           →
         </button>
       </div>
 
       {/* DESCRIPTION */}
-      <p className="text-[18px] leading-[26px] max-w-2xl mb-6">
+      <p className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug relative z-10">
         Der Daruma steht für Ausdauer und Zielstrebigkeit. Setze dir ein Ziel,
         male ein Auge – und wenn du es erreichst, das zweite. Von Hand bei D1
         in St. Gallen gedruckt.
       </p>
 
       {/* BUY BUTTON */}
-      <button className="bg-black text-white px-6 py-3 text-[16px] hover:opacity-80 transition">
-        Jetzt kaufen
-      </button>
+      <button className="mt-6 bg-[#021695] text-white px-6 py-3 text-[16px] transition active:opacity-70 hover:brightness-110">
+  Jetzt kaufen
+</button>
     </div>
   );
 }
