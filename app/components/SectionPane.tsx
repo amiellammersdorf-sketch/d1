@@ -71,7 +71,7 @@ export default function SectionPane({ activeId }: { activeId: string }) {
   return (
     <div className="p-6">
       <div className={widthClass}>
-        <Active />
+        <Active key={activeId} />
       </div>
     </div>
   );
