@@ -37,19 +37,7 @@ export default function Page() {
   const [activeId, setActiveId] = useState(SECTIONS[0]?.id ?? "");
 
 useEffect(() => {
-  const hash = window.location.hash.replace("#", "");
-  if (!hash) return;
-
-  const isValid =
-    SECTIONS.some(section => section.id === hash) ||
-    hash === "potm"; // 👈 THIS is the fix
-
-  if (isValid) {
-    setActiveId(hash);
-  }
-}, []);
-useEffect(() => {
-  const handleHashChange = () => {
+  const applyHash = () => {
     const hash = window.location.hash.replace("#", "");
     if (!hash) return;
 
@@ -62,6 +50,16 @@ useEffect(() => {
     }
   };
 
+  // run once after load
+  setTimeout(applyHash, 50);
+
+  // listen to changes
+  window.addEventListener("hashchange", applyHash);
+
+  return () => {
+    window.removeEventListener("hashchange", applyHash);
+  };
+}, []);
   window.addEventListener("hashchange", handleHashChange);
 
   return () => {
