@@ -1,4 +1,4 @@
-import PrintOfTheMonth from "@/app/components/Sections/PrintOfTheMonth";
+import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth";
 
 export default function POTMPage() {
   return <PrintOfTheMonth />;
