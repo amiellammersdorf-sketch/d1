@@ -107,7 +107,7 @@ const CONTENT: Record<string, React.ReactNode> = {
   ),
 };
 
-// 🔒 extra safety: ensure POTM never renders if disabled
+// 🔒 Safety: ensure POTM never renders if disabled
 if (!SHOW_POTM) {
   delete CONTENT["potm"];
 }
@@ -121,8 +121,9 @@ export default function MobileLayout() {
 
   return (
     <div className="w-full">
+
       {/* LOGO */}
-      <LogoButton onClick={() => setActiveSection("siebdruck")} />
+      <LogoButton onLogoTap={() => setActiveSection("siebdruck")} />
 
       {/* MENU */}
       <div className="flex flex-wrap gap-2 p-4">
