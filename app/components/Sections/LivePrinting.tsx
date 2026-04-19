@@ -1,73 +1,51 @@
 "use client";
 
-import { useState } from "react";
-
-const images = [
-  "/potm/april/potm_april_1.jpg",
-  "/potm/april/potm_april_2.jpg",
-  "/potm/april/potm_april_3.jpg",
-  "/potm/april/potm_april_4.jpg",
-];
-
-export default function PrintOfTheMonth() {
-  const [index, setIndex] = useState(0);
-
-  const prev = () =>
-    setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
-
-  const next = () =>
-    setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
-
+export default function LivePrinting() {
   return (
-    <div className="w-full max-w-5xl">
-      {/* SECTION TITLE */}
-      <h1 className="text-[38px] font-bold text-[#1d4ed8] mb-6">
-        PRINT OF THE MONTH
-      </h1>
-
-      {/* PRODUCT TITLE */}
-      <h2 className="text-[22px] font-semibold mb-4">
-        DARUMA SHIRT
+    <div className="space-y-4 text-[#021695]">
+      <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
+        LIVE PRINTING
       </h2>
 
-      {/* IMAGE + ARROWS */}
-      <div className="relative w-full max-w-md mb-6">
-        <div className="w-full aspect-square overflow-hidden">
-          <img
-            src={images[index]}
-            alt="Daruma Shirt"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        {/* LEFT ARROW */}
-        <button
-          onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 text-lg"
-        >
-          ←
-        </button>
-
-        {/* RIGHT ARROW */}
-        <button
-          onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 text-lg"
-        >
-          →
-        </button>
-      </div>
-
-      {/* DESCRIPTION */}
-      <p className="text-[18px] leading-[26px] max-w-2xl mb-6">
-        Der Daruma steht für Ausdauer und Zielstrebigkeit. Setze dir ein Ziel,
-        male ein Auge – und wenn du es erreichst, das zweite. Von Hand bei D1
-        in St. Gallen gedruckt.
+      <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+        Wenn du nicht zu uns kommst – kommen wir zu dir!
       </p>
 
-      {/* BUY BUTTON */}
-      <button className="bg-black text-white px-6 py-3 text-[16px] hover:opacity-80 transition">
-        Jetzt kaufen
-      </button>
+      <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+        Ausgerüstet mit einer kompletten mobilen Siebdruck-Werkstatt besuchen
+        wir deinen Anlass – gross oder klein – und bringen das Druckerlebnis
+        direkt zu dir.
+      </p>
+
+      <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+        Du planst einen Event und suchst nach dem gewissen Etwas? Mit
+        Live-Siebdruck hast du die Möglichkeit, deinen Anlass zu etwas
+        Besonderem zu machen und bei den Besucher:innen einen bleibenden
+        Eindruck zu hinterlassen.
+      </p>
+
+      <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+        Ob Festival, Firmenfeier, Laden-Event oder Kunstmarkt – wir drucken vor
+        Ort Shirts, Taschen oder Poster live und zum Zuschauen. Deine Gäste
+        können mitmachen oder sich ein eigenes Stück direkt vor Ort drucken
+        lassen – ein Erlebnis, das verbindet und begeistert.
+      </p>
+
+      <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+        Für Marken ist Liveprinting eine starke Möglichkeit, eine authentische
+        Verbindung zwischen Brand und Zielgruppe zu schaffen. Das Publikum wird
+        Teil des Prozesses – und trägt dein Logo oder Design danach stolz weiter.
+      </p>
+
+      <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+        →{" "}
+        <a
+          href="mailto:info@d1studio.ch"
+          className="hover:font-bold text-[#021695] transition-all duration-200"
+        >
+          Schreib uns und wir bringen Siebdruck zu deinem Event!
+        </a>
+      </p>
     </div>
   );
 }
