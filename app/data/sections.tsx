@@ -9,15 +9,22 @@ import Kontakt from "../components/Sections/Kontakt";
 import UeberUns from "../components/Sections/UeberUns";
 import Faq from "../components/Sections/Faq";
 
+// 🔁 TOGGLE POTM VISIBILITY
+const SHOW_POTM = false;
+
 export const SECTIONS = [
   { id: "siebdruck", label: "SIEBDRUCK", component: <Siebdruck /> },
-  { id: "potm", label: "PRINT OF THE MONTH", component: <PrintOfTheMonth /> },
-  { id: "arbeitskleidung-workwear", label: "ARBEITSKLEIDUNG & CORPORATE WEAR", component: <ArbeitskleidungCorporateWear />, },
+
+  ...(SHOW_POTM
+    ? [{ id: "potm", label: "PRINT OF THE MONTH", component: <PrintOfTheMonth /> }]
+    : []),
+
+  { id: "arbeitskleidung-workwear", label: "ARBEITSKLEIDUNG & CORPORATE WEAR", component: <ArbeitskleidungCorporateWear /> },
   { id: "workshops", label: "WORKSHOPS", component: <Workshops /> },
   { id: "events", label: "EVENTS", component: <Events /> },
   { id: "live-printing", label: "LIVE PRINTING", component: <LivePrinting /> },
   { id: "offene-werkstatt", label: "OFFENE WERKSTATT", component: <OffeneWerkstatt /> },
   { id: "kontakt", label: "KONTAKT", component: <Kontakt /> },
   { id: "ueber-uns", label: "ÜBER UNS", component: <UeberUns /> },
-  { id: "faq", label: "FAQ", component: <Faq/> },
+  { id: "faq", label: "FAQ", component: <Faq /> },
 ];
