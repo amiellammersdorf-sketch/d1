@@ -40,7 +40,10 @@ useEffect(() => {
   const hash = window.location.hash.replace("#", "");
   if (!hash) return;
 
-  const isValid = SECTIONS.some(section => section.id === hash);
+  const isValid =
+    SECTIONS.some(section => section.id === hash) ||
+    hash === "potm"; // 👈 THIS is the fix
+
   if (isValid) {
     setActiveId(hash);
   }
