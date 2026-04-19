@@ -1,4 +1,3 @@
-throw new Error("THIS IS THE PAGE FILE");
 "use client";
 
 import Image from "next/image";
