@@ -107,14 +107,20 @@ const CONTENT: Record<string, React.ReactNode> = {
   ),
 };
 
+// 🔒 extra safety: ensure POTM never renders if disabled
+if (!SHOW_POTM) {
+  delete CONTENT["potm"];
+}
+
 /* ---------------- COMPONENT ---------------- */
 
 export default function MobileLayout() {
-  const [activeSection, setActiveSection] = useState(SECTIONS[0].id);
+  const [activeSection, setActiveSection] = useState(
+    SECTIONS[0]?.id || "siebdruck"
+  );
 
   return (
     <div className="w-full">
-
       {/* LOGO */}
       <LogoButton onClick={() => setActiveSection("siebdruck")} />
 
@@ -135,7 +141,7 @@ export default function MobileLayout() {
 
       {/* CONTENT */}
       <div className="p-4">
-        {CONTENT[activeSection]}
+        {CONTENT[activeSection] || <div>Section not found</div>}
       </div>
     </div>
   );
