@@ -1,77 +1,73 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+
+const images = [
+  "/potm/april/potm_april_1.jpg",
+  "/potm/april/potm_april_2.jpg",
+  "/potm/april/potm_april_3.jpg",
+  "/potm/april/potm_april_4.jpg",
+];
 
 export default function PrintOfTheMonth() {
-  const SHOW_POTM = true;
+  const [index, setIndex] = useState(0);
 
-  if (!SHOW_POTM) {
-    return <div className="text-[#021695]">POTM not live</div>;
-  }
+  const prev = () =>
+    setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
 
-  const month = "april";
+  const next = () =>
+    setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="text-[#021695] space-y-4">
-
-      {/* TITLE */}
-      <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
+    <div className="w-full max-w-5xl">
+      {/* SECTION TITLE */}
+      <h1 className="text-[38px] font-bold text-[#1d4ed8] mb-6">
         PRINT OF THE MONTH
+      </h1>
+
+      {/* PRODUCT TITLE */}
+      <h2 className="text-[22px] font-semibold mb-4">
+        DARUMA SHIRT
       </h2>
 
-      {/* TEXT BLOCK */}
-      <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+      {/* IMAGE + ARROWS */}
+      <div className="relative w-full max-w-md mb-6">
+        <div className="w-full aspect-square overflow-hidden">
+          <img
+            src={images[index]}
+            alt="Daruma Shirt"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-        <p>
-          Jeden Monat ein neues Motiv – exklusiv im D1 Studio in St. Gallen gedruckt.
-        </p>
+        {/* LEFT ARROW */}
+        <button
+          onClick={prev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 text-lg"
+        >
+          ←
+        </button>
 
-        <p>
-          <strong>April Drop — Studio Tee</strong><br />
-          CHF 45.–
-        </p>
-
-        <p>
-          Limitierter Siebdruck auf hochwertigem Shirt. Von Hand gedruckt im D1 Studio.
-        </p>
-
+        {/* RIGHT ARROW */}
+        <button
+          onClick={next}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 text-lg"
+        >
+          →
+        </button>
       </div>
 
-      {/* IMAGE */}
-      <div>
-        <Image
-          src={`/potm/potm_${month}_1.jpg`}
-          alt="POTM"
-          width={1200}
-          height={1200}
-          className="w-full h-auto object-cover"
-        />
-      </div>
+      {/* DESCRIPTION */}
+      <p className="text-[18px] leading-[26px] max-w-2xl mb-6">
+        Der Daruma steht für Ausdauer und Zielstrebigkeit. Setze dir ein Ziel,
+        male ein Auge – und wenn du es erreichst, das zweite. Von Hand bei D1
+        in St. Gallen gedruckt.
+      </p>
 
-      {/* DETAILS */}
-      <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
-
-        <p>
-          1–2 Farben Siebdruck<br />
-          Gedruckt in St. Gallen<br />
-          Nur diesen Monat erhältlich
-        </p>
-
-        <p>
-          →{" "}
-          <a
-            href="YOUR_STRIPE_LINK"
-            target="_blank"
-            className="hover:font-bold transition-all duration-200"
-          >
-            Jetzt bestellen
-          </a>
-        </p>
-
-        <p className="text-[14px]">
-          ⏳ Nur bis Ende Monat verfügbar
-        </p>
-
-      </div>
-
+      {/* BUY BUTTON */}
+      <button className="bg-black text-white px-6 py-3 text-[16px] hover:opacity-80 transition">
+        Jetzt kaufen
+      </button>
     </div>
   );
 }
