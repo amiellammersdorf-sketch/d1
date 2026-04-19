@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import Siebdruck from "../components/Sections/Siebdruck";
 import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth";
 import ArbeitskleidungCorporateWear from "../components/Sections/ArbeitskleidungCorporateWear";
@@ -106,3 +106,37 @@ const CONTENT: Record<string, React.ReactNode> = {
     </div>
   ),
 };
+
+/* ---------------- COMPONENT ---------------- */
+
+export default function MobileLayout() {
+  const [activeSection, setActiveSection] = useState(SECTIONS[0].id);
+
+  return (
+    <div className="w-full">
+
+      {/* LOGO */}
+      <LogoButton onClick={() => setActiveSection("siebdruck")} />
+
+      {/* MENU */}
+      <div className="flex flex-wrap gap-2 p-4">
+        {SECTIONS.map((section) => (
+          <button
+            key={section.id}
+            onClick={() => setActiveSection(section.id)}
+            className={`text-[14px] ${
+              activeSection === section.id ? "font-bold" : ""
+            }`}
+          >
+            {section.title}
+          </button>
+        ))}
+      </div>
+
+      {/* CONTENT */}
+      <div className="p-4">
+        {CONTENT[activeSection]}
+      </div>
+    </div>
+  );
+}
