@@ -48,7 +48,26 @@ useEffect(() => {
     setActiveId(hash);
   }
 }, []);
+useEffect(() => {
+  const handleHashChange = () => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
 
+    const isValid =
+      SECTIONS.some(section => section.id === hash) ||
+      hash === "potm";
+
+    if (isValid) {
+      setActiveId(hash);
+    }
+  };
+
+  window.addEventListener("hashchange", handleHashChange);
+
+  return () => {
+    window.removeEventListener("hashchange", handleHashChange);
+  };
+}, []);
   return (
   <>
     {/* Desktop layout */}
