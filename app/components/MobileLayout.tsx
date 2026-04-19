@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import Siebdruck from "../components/Sections/Siebdruck";
-import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth";
 import ArbeitskleidungCorporateWear from "../components/Sections/ArbeitskleidungCorporateWear";
 import Workshops from "../components/Sections/Workshops";
 import Events from "../components/Sections/Events";
