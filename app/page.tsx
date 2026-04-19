@@ -35,12 +35,9 @@ export default function Page() {
 
       if (!hash) return;
 
-      if (
-        SECTIONS.some(section => section.id === hash) ||
-        hash === "potm"
-      ) {
-        setActiveId(hash);
-      }
+      if (SECTIONS.some(section => section.id === hash)) {
+  setActiveId(hash);
+}
     };
 
     // run once on load
