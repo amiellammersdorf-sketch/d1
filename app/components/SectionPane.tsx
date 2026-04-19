@@ -48,6 +48,8 @@ export default function SectionPane({ activeId }: { activeId: string }) {
 
   const Active = COMPONENTS[activeId];
 
+console.log("ACTIVE ID:", activeId);
+
   if (!Active) {
     return <div className="p-6 text-xl text-[#021695]">Wähle links eine Sektion.</div>;
   }
