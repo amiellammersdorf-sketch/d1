@@ -122,7 +122,7 @@ export default function MobileLayout() {
   return (
     <div className="w-full">
       {/* LOGO */}
-      <LogoButton onLogoTap={() => setActiveSection("siebdruck")} />
+      <LogoButton onClick={() => setActiveSection("siebdruck")} />
 
       {/* MENU */}
       <div className="flex flex-wrap gap-2 p-4">
