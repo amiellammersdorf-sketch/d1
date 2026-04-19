@@ -25,8 +25,7 @@ export default function PrintOfTheMonth() {
       <h2 className="hidden md:block text-[38px] font-bold text-[#021695] mb-6">
   PRINT OF THE MONTH
 </h2>
-
-      {/* PRODUCT TITLE */}
+    {/* PRODUCT TITLE */}
       <h2 className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug relative z-10">
         Daruma T-Shirt
       </h2>
