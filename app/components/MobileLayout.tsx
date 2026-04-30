@@ -1,4 +1,3 @@
-ok... then edit the mobilelayout file
 "use client";
 
 import { useState, useRef, useEffect } from "react";
