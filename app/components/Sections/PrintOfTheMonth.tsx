@@ -34,7 +34,7 @@ export default function PrintOfTheMonth() {
 
       {/* TITLE */}
       <h2 className="hidden md:block text-[38px] font-bold tracking-wide">
-        PRINT OF THE MONTH
+        PRINT DES MONATS
       </h2>
 
       {/* PRODUCT */}
@@ -73,30 +73,31 @@ export default function PrintOfTheMonth() {
       </div>
 
       {/* DESCRIPTION */}
-<div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
-  <p>
-    Inspiriert von Pimientos de Padrón – kleinen grünen Paprikaschoten aus Galicien, bei denen man nie weiss, welche scharf ist.
-  </p>
-  <p>
-  Design von {""}
-  <a
-    href="https://d1studio.ch"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="font-bold hover:opacity-70 transition"
-  >
-    D1 Print Studio
-  </a>
-</p>
+      <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+        <p>
+          Inspiriert von Pimientos de Padrón – kleinen grünen Paprikaschoten aus Galicien, bei denen man nie weiss, welche scharf ist.
+        </p>
 
-  <p>
-    2-farbiger Siebdruck, vorne und hinten bedruckt.
-  </p>
+        <p>
+          Design von{" "}
+          <a
+            href="https://d1studio.ch"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold hover:opacity-70 transition"
+          >
+            D1 Print Studio
+          </a>
+        </p>
 
-  <p>
-    Von Hand gedruckt im D1 auf hochwertigen Stanley/Stella Sparker 2.0 – ein schweres, robustes Shirt mit moderner Passform aus Bio-Baumwolle.
-  </p>
-</div>
+        <p>
+          2-farbiger Siebdruck, vorne und hinten bedruckt.
+        </p>
+
+        <p>
+          Von Hand gedruckt im D1 auf hochwertigen Stanley/Stella Sparker 2.0 – ein schweres, robustes Shirt mit moderner Passform aus Bio-Baumwolle.
+        </p>
+      </div>
 
       {/* CHOOSE SIZE */}
       <p className="text-[14px] md:text-base">
@@ -109,12 +110,11 @@ export default function PrintOfTheMonth() {
           <button
             key={s}
             onClick={() => setSize(s)}
-            className={`border px-4 py-2 text-sm transition
-              ${
-                size === s
-                  ? "bg-[#021695] text-white"
-                  : "hover:bg-[#021695] hover:text-white"
-              }`}
+            className={`border px-4 py-2 text-sm transition ${
+              size === s
+                ? "bg-[#021695] text-white"
+                : "hover:bg-[#021695] hover:text-white"
+            }`}
           >
             {s}
           </button>
@@ -125,12 +125,11 @@ export default function PrintOfTheMonth() {
       <button
         onClick={handleBuy}
         disabled={!size}
-        className={`mt-4 px-6 py-3 text-[16px] transition
-          ${
-            size
-              ? "bg-[#021695] text-white hover:brightness-110"
-              : "bg-gray-300 text-gray-500 cursor-not-allowed"
-          }`}
+        className={`mt-4 px-6 py-3 text-[16px] transition ${
+          size
+            ? "bg-[#021695] text-white hover:brightness-110"
+            : "bg-gray-300 text-gray-500 cursor-not-allowed"
+        }`}
       >
         Bestellen
       </button>

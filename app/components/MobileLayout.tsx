@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import Siebdruck from "../components/Sections/Siebdruck";
-import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth";
 import ArbeitskleidungCorporateWear from "../components/Sections/ArbeitskleidungCorporateWear";
 import Workshops from "../components/Sections/Workshops";
 import Events from "../components/Sections/Events";
@@ -17,7 +16,6 @@ import LogoButton from "../components/LogoButton";
 
 const SECTIONS = [
   { id: "siebdruck", title: "SIEBDRUCK" },
-  { id: "potm", title: "PRINT OF THE MONTH" },
   { id: "arbeitskleidung-workwear", title: "ARBEITSKLEIDUNG & WORKWEAR" },
   { id: "workshops", title: "WORKSHOPS" },
   { id: "events", title: "EVENTS" },
@@ -35,7 +33,6 @@ const SECTIONS = [
 
 const CONTENT: Record<string, React.ReactNode> = {
   siebdruck: <Siebdruck />,
-  potm: <PrintOfTheMonth />,
 
   "arbeitskleidung-workwear": <ArbeitskleidungCorporateWear />,
 
