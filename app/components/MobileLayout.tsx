@@ -11,6 +11,7 @@ import OffeneWerkstatt from "../components/Sections/OffeneWerkstatt";
 import Kontakt from "../components/Sections/Kontakt";
 import UeberUns from "../components/Sections/UeberUns";
 import Faq from "../components/Sections/Faq";
+import LogoButton from "./LogoButton";
 
 /* ---------------- SECTIONS (menu) ---------------- */
 
