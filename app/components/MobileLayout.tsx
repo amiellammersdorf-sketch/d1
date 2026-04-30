@@ -15,7 +15,7 @@ import Faq from "../components/Sections/Faq";
 /* ---------------- SECTIONS (menu) ---------------- */
 
 const SECTIONS = [
-  { id: "siebdruck", title: "SIEBDRUCK" },
+  { id: "siebdruck", title: "SIEBDRUCK TEST" },
   { id: "arbeitskleidung-workwear", title: "ARBEITSKLEIDUNG & WORKWEAR" },
   { id: "workshops", title: "WORKSHOPS" },
   { id: "events", title: "EVENTS" },
