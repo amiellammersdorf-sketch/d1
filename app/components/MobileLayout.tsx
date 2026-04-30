@@ -11,9 +11,27 @@ import OffeneWerkstatt from "../components/Sections/OffeneWerkstatt";
 import Kontakt from "../components/Sections/Kontakt";
 import UeberUns from "../components/Sections/UeberUns";
 import Faq from "../components/Sections/Faq";
-import LogoButton from "./LogoButton"; // ✅ FIX
+import LogoButton from "./LogoButton";
+import Gallery from "./Gallery"; // ✅ ADD
 
-/* ---------------- SECTIONS (menu) ---------------- */
+/* ---------------- GALLERY MAPPING ---------------- */
+
+const SECTION_TO_GALLERY: Record<string, string> = {
+  siebdruck: "siebdruck",
+  potm: "siebdruck",
+  "arbeitskleidung-workwear": "siebdruck",
+  workshops: "workshops",
+  events: "events",
+  "live-printing": "liveprinting",
+  "offene-werkstatt": "offene",
+  kontakt: "kontakt",
+  "ueber-uns": "about",
+  faq: "faq",
+};
+
+const gallerySlugFor = (id: string) => SECTION_TO_GALLERY[id] ?? id;
+
+/* ---------------- SECTIONS ---------------- */
 
 const SECTIONS = [
   { id: "siebdruck", title: "SIEBDRUCK" },
@@ -21,7 +39,7 @@ const SECTIONS = [
   { id: "workshops", title: "WORKSHOPS" },
   { id: "events", title: "EVENTS" },
   { id: "live-printing", title: "LIVE PRINTING" },
-  { id: "potm", title: "PRINT DES MONATS" }, // ✅ POTM
+  { id: "potm", title: "PRINT DES MONATS" },
   { id: "offene-werkstatt", title: "OFFENE WERKSTATT" },
   { id: "kontakt", title: "KONTAKT" },
   { id: "ueber-uns", title: "ÜBER UNS" },
@@ -35,8 +53,7 @@ const SECTIONS = [
 
 const CONTENT: Record<string, React.ReactNode> = {
   siebdruck: <Siebdruck />,
-  potm: <PrintOfTheMonth />, // ✅ POTM CONTENT
-
+  potm: <PrintOfTheMonth />,
   "arbeitskleidung-workwear": <ArbeitskleidungCorporateWear />,
   workshops: <Workshops />,
   events: <Events />,
@@ -45,58 +62,6 @@ const CONTENT: Record<string, React.ReactNode> = {
   kontakt: <Kontakt />,
   "ueber-uns": <UeberUns />,
   faq: <Faq />,
-
-  agb: (
-    <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
-      <p>
-        <strong>1. Geltungsbereich</strong><br />
-        Diese AGB gelten für alle Leistungen von <strong>D1 Print Studio</strong>,
-        Einzelfirma von <strong>Amiel Lammersdorf</strong>, Demutstrasse 1, 9000 St. Gallen.
-      </p>
-      <p>
-        <strong>2. Leistungen</strong><br />
-        Sorgfältige, termingerechte Ausführung. Produktionsbedingte Abweichungen sind möglich.
-      </p>
-      <p>
-        <strong>3. Preise & Zahlung</strong><br />
-        Preise in CHF. Workshops im Voraus; Druckaufträge nach Vereinbarung.
-      </p>
-      <p>
-        <strong>4. Workshops & Buchungen</strong><br />
-        Kostenlose Stornierung bis 7 Tage vor Beginn; danach keine Rückerstattung.
-      </p>
-      <p>
-        <strong>5. Haftung</strong><br />
-        Haftung nur bei Vorsatz oder grober Fahrlässigkeit.
-      </p>
-    </div>
-  ),
-
-  datenschutz: (
-    <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
-      <p>
-        <strong>Verantwortlich</strong><br />
-        D1 Print Studio – Amiel Lammersdorf<br />
-        <a href="mailto:info@d1studio.ch" className="underline">
-          info@d1studio.ch
-        </a>
-      </p>
-      <p>
-        <strong>Daten</strong><br />
-        Nur soweit nötig für Auftragsabwicklung oder Anfragen.
-      </p>
-    </div>
-  ),
-
-  impressum: (
-    <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
-      <p>
-        <strong>D1 Print Studio</strong><br />
-        Inhaber: Amiel Lammersdorf<br />
-        Demutstrasse 1, 9000 St. Gallen
-      </p>
-    </div>
-  ),
 };
 
 /* ---------------- MAIN ---------------- */
@@ -132,10 +97,24 @@ export default function MobileLayout() {
             title={section.title}
             isOpen={openSection === section.id}
             onToggle={() => toggleSection(section.id)}
-            index={index}
             scrollContainerRef={scrollContainerRef}
           >
             {CONTENT[section.id] ?? null}
+
+            {/* ✅ GALLERY */}
+            <div className="mt-6 w-full h-[60vw] max-h-[420px] overflow-hidden">
+              <Gallery
+                section={gallerySlugFor(section.id)}
+                count={
+                  gallerySlugFor(section.id) === "siebdruck" ? 4 :
+                  gallerySlugFor(section.id) === "about" ? 4 :
+                  gallerySlugFor(section.id) === "faq" ? 4 :
+                  gallerySlugFor(section.id) === "workshops" ? 4 : 3
+                }
+                className="w-full h-full"
+              />
+            </div>
+
           </AccordionItem>
         ))}
       </div>
@@ -151,7 +130,6 @@ function AccordionItem({
   isOpen,
   onToggle,
   children,
-  index,
   scrollContainerRef,
 }: {
   id: string;
@@ -159,7 +137,6 @@ function AccordionItem({
   isOpen: boolean;
   onToggle: () => void;
   children: React.ReactNode;
-  index: number;
   scrollContainerRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -203,7 +180,7 @@ function AccordionItem({
       </button>
 
       <div ref={contentRef} className="overflow-hidden px-4">
-        <div className="pt-2 pb-8 text-[12px] leading-[24px]">
+        <div className="pt-2 pb-8 text-[12px] leading-[24px] space-y-6">
           {children}
         </div>
       </div>
