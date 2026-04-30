@@ -41,7 +41,7 @@ export default function PrintOfTheMonth() {
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
         <p>
           <strong>“Some are hot and some are not”</strong><br />
-          Studio Tee<br />
+          T-Shirt<br />
           CHF 45.–
         </p>
       </div>
@@ -101,9 +101,9 @@ export default function PrintOfTheMonth() {
       </div>
 
       {/* CHOOSE SIZE */}
-      <p className="text-[14px] md:text-base">
-        Wähle deine Grösse
-      </p>
+      <p className="text-[18px] leading-[26px] md:text-2xl md:leading-snug">
+  Wähle deine Grösse
+</p>
 
       {/* SIZE BUTTONS */}
       <div className="flex gap-2">
