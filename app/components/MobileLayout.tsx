@@ -34,6 +34,7 @@ const SECTIONS = [
 
 const CONTENT: Record<string, React.ReactNode> = {
   siebdruck: <Siebdruck />,
+  potm: <PrintOfTheMonth />, // 👈 ADD THIS
 
   "arbeitskleidung-workwear": <ArbeitskleidungCorporateWear />,
 
