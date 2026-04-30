@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Siebdruck from "../components/Sections/Siebdruck";
-import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth"; // 👈 ADD HERE
+import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth";
 import ArbeitskleidungCorporateWear from "../components/Sections/ArbeitskleidungCorporateWear";
 import Workshops from "../components/Sections/Workshops";
 import Events from "../components/Sections/Events";
@@ -11,17 +11,17 @@ import OffeneWerkstatt from "../components/Sections/OffeneWerkstatt";
 import Kontakt from "../components/Sections/Kontakt";
 import UeberUns from "../components/Sections/UeberUns";
 import Faq from "../components/Sections/Faq";
-import LogoButton from "./LogoButton";
+import LogoButton from "./LogoButton"; // ✅ FIX
 
 /* ---------------- SECTIONS (menu) ---------------- */
 
 const SECTIONS = [
-  { id: "siebdruck", title: "SIEBDRUCK TEST" },
+  { id: "siebdruck", title: "SIEBDRUCK" },
   { id: "arbeitskleidung-workwear", title: "ARBEITSKLEIDUNG & WORKWEAR" },
   { id: "workshops", title: "WORKSHOPS" },
   { id: "events", title: "EVENTS" },
   { id: "live-printing", title: "LIVE PRINTING" },
-  { id: "potm", title: "PRINT DES MONATS" }, // 👈 ADD THIS
+  { id: "potm", title: "PRINT DES MONATS" }, // ✅ POTM
   { id: "offene-werkstatt", title: "OFFENE WERKSTATT" },
   { id: "kontakt", title: "KONTAKT" },
   { id: "ueber-uns", title: "ÜBER UNS" },
@@ -31,14 +31,13 @@ const SECTIONS = [
   { id: "impressum", title: "IMPRESSUM" },
 ];
 
-/* ---------------- CONTENT (rendered sections) ---------------- */
+/* ---------------- CONTENT ---------------- */
 
 const CONTENT: Record<string, React.ReactNode> = {
   siebdruck: <Siebdruck />,
-  potm: <PrintOfTheMonth />, // 👈 ADD THIS
+  potm: <PrintOfTheMonth />, // ✅ POTM CONTENT
 
   "arbeitskleidung-workwear": <ArbeitskleidungCorporateWear />,
-
   workshops: <Workshops />,
   events: <Events />,
   "live-printing": <LivePrinting />,
@@ -50,31 +49,24 @@ const CONTENT: Record<string, React.ReactNode> = {
   agb: (
     <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
       <p>
-        <strong>1. Geltungsbereich</strong>
-        <br />
+        <strong>1. Geltungsbereich</strong><br />
         Diese AGB gelten für alle Leistungen von <strong>D1 Print Studio</strong>,
-        Einzelfirma von <strong>Amiel Lammersdorf</strong>, Demutstrasse 1, 9000 St.
-        Gallen.
+        Einzelfirma von <strong>Amiel Lammersdorf</strong>, Demutstrasse 1, 9000 St. Gallen.
       </p>
       <p>
-        <strong>2. Leistungen</strong>
-        <br />
-        Sorgfältige, termingerechte Ausführung. Produktionsbedingte Abweichungen
-        sind möglich.
+        <strong>2. Leistungen</strong><br />
+        Sorgfältige, termingerechte Ausführung. Produktionsbedingte Abweichungen sind möglich.
       </p>
       <p>
-        <strong>3. Preise & Zahlung</strong>
-        <br />
+        <strong>3. Preise & Zahlung</strong><br />
         Preise in CHF. Workshops im Voraus; Druckaufträge nach Vereinbarung.
       </p>
       <p>
-        <strong>4. Workshops & Buchungen</strong>
-        <br />
+        <strong>4. Workshops & Buchungen</strong><br />
         Kostenlose Stornierung bis 7 Tage vor Beginn; danach keine Rückerstattung.
       </p>
       <p>
-        <strong>5. Haftung</strong>
-        <br />
+        <strong>5. Haftung</strong><br />
         Haftung nur bei Vorsatz oder grober Fahrlässigkeit.
       </p>
     </div>
@@ -83,17 +75,14 @@ const CONTENT: Record<string, React.ReactNode> = {
   datenschutz: (
     <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
       <p>
-        <strong>Verantwortlich</strong>
-        <br />
-        D1 Print Studio – Amiel Lammersdorf
-        <br />
+        <strong>Verantwortlich</strong><br />
+        D1 Print Studio – Amiel Lammersdorf<br />
         <a href="mailto:info@d1studio.ch" className="underline">
           info@d1studio.ch
         </a>
       </p>
       <p>
-        <strong>Daten</strong>
-        <br />
+        <strong>Daten</strong><br />
         Nur soweit nötig für Auftragsabwicklung oder Anfragen.
       </p>
     </div>
@@ -102,17 +91,15 @@ const CONTENT: Record<string, React.ReactNode> = {
   impressum: (
     <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
       <p>
-        <strong>D1 Print Studio</strong>
-        <br />
-        Inhaber: Amiel Lammersdorf
-        <br />
+        <strong>D1 Print Studio</strong><br />
+        Inhaber: Amiel Lammersdorf<br />
         Demutstrasse 1, 9000 St. Gallen
       </p>
     </div>
   ),
 };
 
-/* ---------------- MAIN COMPONENT ---------------- */
+/* ---------------- MAIN ---------------- */
 
 export default function MobileLayout() {
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -124,7 +111,7 @@ export default function MobileLayout() {
 
   return (
     <div className="md:hidden border-[3px] border-[#021695] text-[#021695] font-akkurat h-screen flex flex-col overflow-hidden">
-      {/* Logo header */}
+      {/* Logo */}
       <div className="border-b-[3px] border-[#021695] bg-white sticky top-0 z-50">
         <div className="ml-2 scale-90">
           <LogoButton
@@ -185,10 +172,12 @@ function AccordionItem({
 
     if (isOpen) {
       el.style.height = el.scrollHeight + "px";
+
       if (id !== "siebdruck") {
         requestAnimationFrame(() => {
           const container = scrollContainerRef.current;
           const section = sectionRef.current;
+
           if (container && section) {
             container.scrollTo({
               top: section.offsetTop - TARGET_Y,
@@ -205,16 +194,18 @@ function AccordionItem({
   return (
     <div ref={sectionRef} className="border-b-[3px] border-[#021695] bg-white">
       <button
-  onClick={onToggle}
-  className={`w-full text-left text-[38px] leading-[1.15] px-4 py-5 ${
-    isOpen ? "font-bold" : "hover:font-bold"
-  }`}
->
+        onClick={onToggle}
+        className={`w-full text-left text-[38px] leading-[1.15] px-4 py-5 ${
+          isOpen ? "font-bold" : "hover:font-bold"
+        }`}
+      >
         {title}
       </button>
 
       <div ref={contentRef} className="overflow-hidden px-4">
-        <div className="pt-2 pb-8 text-[12px] leading-[24px]">{children}</div>
+        <div className="pt-2 pb-8 text-[12px] leading-[24px]">
+          {children}
+        </div>
       </div>
     </div>
   );
