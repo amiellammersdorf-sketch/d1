@@ -40,7 +40,7 @@ export default function PrintOfTheMonth() {
       {/* PRODUCT */}
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
         <p>
-          <strong>“Some are hot and some are not”</strong><br />
+          <strong>Some are hot and some are not</strong><br />
           T-Shirt<br />
           CHF 45.–
         </p>
@@ -124,16 +124,16 @@ export default function PrintOfTheMonth() {
 
       {/* BUY BUTTON */}
       <button
-        onClick={handleBuy}
-        disabled={!size}
-        className={`mt-4 px-6 py-3 text-[16px] transition ${
-          size
-            ? "bg-[#021695] text-white hover:brightness-110"
-            : "bg-gray-300 text-gray-500 cursor-not-allowed"
-        }`}
-      >
-        Bestellen
-      </button>
+  onClick={handleBuy}
+  disabled={!size}
+  className={`mt-4 px-6 py-3 text-[18px] leading-[26px] md:text-2xl md:leading-snug transition ${
+    size
+      ? "bg-[#021695] text-white hover:brightness-110"
+      : "bg-gray-300 text-gray-500 cursor-not-allowed"
+  }`}
+>
+  Bestellen
+</button>
 
     </div>
   );
