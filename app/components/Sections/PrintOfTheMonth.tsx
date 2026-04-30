@@ -123,7 +123,7 @@ export default function PrintOfTheMonth() {
 </div>
 
       {/* BUY BUTTON */}
-      <button
+     <button
   onClick={handleBuy}
   disabled={!size}
   className={`mt-4 px-6 py-3 text-[18px] leading-[26px] md:text-2xl md:leading-snug transition ${
