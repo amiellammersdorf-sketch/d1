@@ -11,9 +11,9 @@ import OffeneWerkstatt from "../components/Sections/OffeneWerkstatt";
 import Kontakt from "../components/Sections/Kontakt";
 import UeberUns from "../components/Sections/UeberUns";
 import Faq from "../components/Sections/Faq";
-import LogoButton from "./LogoButton"; // ✅ FIX
+import LogoButton from "./LogoButton";
 
-/* ---------------- SECTIONS (menu) ---------------- */
+/* ---------------- SECTIONS ---------------- */
 
 const SECTIONS = [
   { id: "siebdruck", title: "SIEBDRUCK" },
@@ -21,22 +21,18 @@ const SECTIONS = [
   { id: "workshops", title: "WORKSHOPS" },
   { id: "events", title: "EVENTS" },
   { id: "live-printing", title: "LIVE PRINTING" },
-  { id: "potm", title: "PRINT DES MONATS" }, // ✅ POTM
+  { id: "potm", title: "PRINT DES MONATS" },
   { id: "offene-werkstatt", title: "OFFENE WERKSTATT" },
   { id: "kontakt", title: "KONTAKT" },
   { id: "ueber-uns", title: "ÜBER UNS" },
   { id: "faq", title: "FAQ" },
-  { id: "agb", title: "AGB" },
-  { id: "datenschutz", title: "DATENSCHUTZ" },
-  { id: "impressum", title: "IMPRESSUM" },
 ];
 
 /* ---------------- CONTENT ---------------- */
 
 const CONTENT: Record<string, React.ReactNode> = {
   siebdruck: <Siebdruck />,
-  potm: <PrintOfTheMonth />, // ✅ POTM CONTENT
-
+  potm: <PrintOfTheMonth />,
   "arbeitskleidung-workwear": <ArbeitskleidungCorporateWear />,
   workshops: <Workshops />,
   events: <Events />,
@@ -45,58 +41,34 @@ const CONTENT: Record<string, React.ReactNode> = {
   kontakt: <Kontakt />,
   "ueber-uns": <UeberUns />,
   faq: <Faq />,
+};
 
-  agb: (
-    <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
-      <p>
-        <strong>1. Geltungsbereich</strong><br />
-        Diese AGB gelten für alle Leistungen von <strong>D1 Print Studio</strong>,
-        Einzelfirma von <strong>Amiel Lammersdorf</strong>, Demutstrasse 1, 9000 St. Gallen.
-      </p>
-      <p>
-        <strong>2. Leistungen</strong><br />
-        Sorgfältige, termingerechte Ausführung. Produktionsbedingte Abweichungen sind möglich.
-      </p>
-      <p>
-        <strong>3. Preise & Zahlung</strong><br />
-        Preise in CHF. Workshops im Voraus; Druckaufträge nach Vereinbarung.
-      </p>
-      <p>
-        <strong>4. Workshops & Buchungen</strong><br />
-        Kostenlose Stornierung bis 7 Tage vor Beginn; danach keine Rückerstattung.
-      </p>
-      <p>
-        <strong>5. Haftung</strong><br />
-        Haftung nur bei Vorsatz oder grober Fahrlässigkeit.
-      </p>
-    </div>
-  ),
+/* ---------------- GALLERY MAP ---------------- */
 
-  datenschutz: (
-    <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
-      <p>
-        <strong>Verantwortlich</strong><br />
-        D1 Print Studio – Amiel Lammersdorf<br />
-        <a href="mailto:info@d1studio.ch" className="underline">
-          info@d1studio.ch
-        </a>
-      </p>
-      <p>
-        <strong>Daten</strong><br />
-        Nur soweit nötig für Auftragsabwicklung oder Anfragen.
-      </p>
-    </div>
-  ),
+const SECTION_TO_GALLERY: Record<string, string> = {
+  siebdruck: "siebdruck",
+  potm: "siebdruck",
+  "arbeitskleidung-workwear": "siebdruck",
+  workshops: "workshops",
+  events: "events",
+  "live-printing": "liveprinting",
+  "offene-werkstatt": "offene",
+  kontakt: "kontakt",
+  "ueber-uns": "about",
+  faq: "faq",
+};
 
-  impressum: (
-    <div className="space-y-4 text-[#021695] text-[14px] leading-[22px]">
-      <p>
-        <strong>D1 Print Studio</strong><br />
-        Inhaber: Amiel Lammersdorf<br />
-        Demutstrasse 1, 9000 St. Gallen
-      </p>
-    </div>
-  ),
+const getGalleryImages = (section: string) => {
+  const slug = SECTION_TO_GALLERY[section] || section;
+
+  const count =
+    slug === "siebdruck" ? 4 :
+    slug === "about" ? 4 :
+    slug === "faq" ? 4 :
+    slug === "workshops" ? 4 :
+    3;
+
+  return Array.from({ length: count }, (_, i) => `/${slug}/${i + 1}.jpg`);
 };
 
 /* ---------------- MAIN ---------------- */
@@ -109,8 +81,11 @@ export default function MobileLayout() {
     setOpenSection((prev) => (prev === id ? null : id));
   };
 
+  const images = openSection ? getGalleryImages(openSection) : [];
+
   return (
     <div className="md:hidden border-[3px] border-[#021695] text-[#021695] font-akkurat h-screen flex flex-col overflow-hidden">
+      
       {/* Logo */}
       <div className="border-b-[3px] border-[#021695] bg-white sticky top-0 z-50">
         <div className="ml-2 scale-90">
@@ -124,7 +99,7 @@ export default function MobileLayout() {
       </div>
 
       {/* Accordion */}
-      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto pb-[50vh]">
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
         {SECTIONS.map((section, index) => (
           <AccordionItem
             key={section.id}
@@ -139,11 +114,26 @@ export default function MobileLayout() {
           </AccordionItem>
         ))}
       </div>
+
+      {/* 🔥 MOBILE GALLERY */}
+      {images.length > 0 && (
+        <div className="border-t-[3px] border-[#021695] bg-white py-3">
+          <div className="flex gap-3 px-4 overflow-x-auto snap-x snap-mandatory">
+            {images.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                className="w-[70%] max-w-[280px] aspect-square object-cover flex-shrink-0 snap-start"
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-/* ---------------- ACCORDION ITEM ---------------- */
+/* ---------------- ACCORDION ---------------- */
 
 function AccordionItem({
   id,
@@ -151,7 +141,6 @@ function AccordionItem({
   isOpen,
   onToggle,
   children,
-  index,
   scrollContainerRef,
 }: {
   id: string;
@@ -173,19 +162,17 @@ function AccordionItem({
     if (isOpen) {
       el.style.height = el.scrollHeight + "px";
 
-      if (id !== "siebdruck") {
-        requestAnimationFrame(() => {
-          const container = scrollContainerRef.current;
-          const section = sectionRef.current;
+      requestAnimationFrame(() => {
+        const container = scrollContainerRef.current;
+        const section = sectionRef.current;
 
-          if (container && section) {
-            container.scrollTo({
-              top: section.offsetTop - TARGET_Y,
-              behavior: "smooth",
-            });
-          }
-        });
-      }
+        if (container && section) {
+          container.scrollTo({
+            top: section.offsetTop - TARGET_Y,
+            behavior: "smooth",
+          });
+        }
+      });
     } else {
       el.style.height = "0px";
     }
@@ -195,7 +182,7 @@ function AccordionItem({
     <div ref={sectionRef} className="border-b-[3px] border-[#021695] bg-white">
       <button
         onClick={onToggle}
-        className={`w-full text-left text-[38px] leading-[1.15] px-4 py-5 ${
+        className={`w-full text-left text-[32px] leading-[1.2] px-4 py-5 ${
           isOpen ? "font-bold" : "hover:font-bold"
         }`}
       >
@@ -203,7 +190,7 @@ function AccordionItem({
       </button>
 
       <div ref={contentRef} className="overflow-hidden px-4">
-        <div className="pt-2 pb-8 text-[12px] leading-[24px]">
+        <div className="pt-2 pb-6 text-[14px] leading-[22px]">
           {children}
         </div>
       </div>
