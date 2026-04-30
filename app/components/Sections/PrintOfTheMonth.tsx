@@ -107,20 +107,20 @@ export default function PrintOfTheMonth() {
 
       {/* SIZE BUTTONS */}
       <div className="flex gap-2">
-        {["S", "M", "L", "XL"].map((s) => (
-          <button
-            key={s}
-            onClick={() => setSize(s)}
-            className={`border px-4 py-2 text-sm transition ${
-              size === s
-                ? "bg-[#021695] text-white"
-                : "hover:bg-[#021695] hover:text-white"
-            }`}
-          >
-            {s}
-          </button>
-        ))}
-      </div>
+  {["S", "M", "L", "XL"].map((s) => (
+    <button
+      key={s}
+      onClick={() => setSize(s)}
+      className={`border px-4 py-2 text-[18px] leading-[26px] md:text-2xl md:leading-snug transition ${
+        size === s
+          ? "bg-[#021695] text-white"
+          : "hover:bg-[#021695] hover:text-white"
+      }`}
+    >
+      {s}
+    </button>
+  ))}
+</div>
 
       {/* BUY BUTTON */}
       <button
