@@ -40,7 +40,7 @@ export default function PrintOfTheMonth() {
       {/* PRODUCT */}
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
         <p>
-          <strong>Some are hot and some are not T-Shirt</strong><br />
+          <strong>"Some are hot and some are not" T-Shirt</strong><br />
           CHF 45.–
         </p>
       </div>
