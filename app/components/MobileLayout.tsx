@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Siebdruck from "../components/Sections/Siebdruck";
+import PrintOfTheMonth from "../components/Sections/PrintOfTheMonth"; // 👈 ADD HERE
 import ArbeitskleidungCorporateWear from "../components/Sections/ArbeitskleidungCorporateWear";
 import Workshops from "../components/Sections/Workshops";
 import Events from "../components/Sections/Events";
@@ -10,7 +11,6 @@ import OffeneWerkstatt from "../components/Sections/OffeneWerkstatt";
 import Kontakt from "../components/Sections/Kontakt";
 import UeberUns from "../components/Sections/UeberUns";
 import Faq from "../components/Sections/Faq";
-import LogoButton from "../components/LogoButton";
 
 /* ---------------- SECTIONS (menu) ---------------- */
 
@@ -20,6 +20,7 @@ const SECTIONS = [
   { id: "workshops", title: "WORKSHOPS" },
   { id: "events", title: "EVENTS" },
   { id: "live-printing", title: "LIVE PRINTING" },
+  { id: "potm", title: "PRINT DES MONATS" }, // 👈 ADD THIS
   { id: "offene-werkstatt", title: "OFFENE WERKSTATT" },
   { id: "kontakt", title: "KONTAKT" },
   { id: "ueber-uns", title: "ÜBER UNS" },
