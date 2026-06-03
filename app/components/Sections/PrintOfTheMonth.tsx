@@ -10,10 +10,10 @@ const images = [
 ];
 
 const STRIPE_LINKS: Record<string, string> = {
-  S: "https://buy.stripe.com/cNi8wR0JZgbtd498674Vy08",
-  M: "https://buy.stripe.com/cNi7sNfET5wPfchaef4Vy09",
-  L: "https://buy.stripe.com/8x24gBfET3oHe8d4TV4Vy07",
-  XL: "https://buy.stripe.com/bJedRbdwL7EXaW17234Vy0a",
+  S: "https://buy.stripe.com/28E9AVcsHgbtggldqr4Vy0b",
+  M: "https://buy.stripe.com/fZudRbgIXbVdggleuv4Vy0c",
+  L: "https://buy.stripe.com/7sY4gB9gvcZh3tzcmn4Vy0e",
+  XL: "https://buy.stripe.com/dRm00lfET1gzc05gCD4Vy0d",
 };
 
 export default function PrintOfTheMonth() {
