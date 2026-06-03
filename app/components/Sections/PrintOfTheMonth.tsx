@@ -76,7 +76,7 @@ export default function PrintOfTheMonth() {
       {/* DESCRIPTION */}
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
         <p>
-          Inspiriert von Pimientos de Padrón – kleinen grünen Paprikaschoten aus Galicien, bei denen man nie weiss, welche scharf ist.
+          Pocketprint: 花舞う (Hanamau) – flatternde Blüten in Bewegung.
         </p>
 
         <p>
