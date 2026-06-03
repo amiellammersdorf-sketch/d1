@@ -93,7 +93,7 @@ export default function PrintOfTheMonth() {
         </p>
 
         <p>
-          2-farbiger Siebdruck, vorne und hinten bedruckt.
+          6-farbiger Siebdruck auf dem Rücken, 2-farbiger Frontprint.
         </p>
 
         <p>
