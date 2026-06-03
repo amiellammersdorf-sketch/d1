@@ -42,7 +42,7 @@ export default function PrintOfTheMonth() {
         <p>
           <strong>Mau Hana</strong><br />
           T-Shirt<br />
-          CHF 45.–
+          CHF 50.–
         </p>
       </div>
 
