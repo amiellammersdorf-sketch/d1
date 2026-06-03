@@ -77,6 +77,7 @@ export default function PrintOfTheMonth() {
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
         <p>
           Pocketprint: 花舞う (Hanamau) – flatternde Blüten in Bewegung.
+          Backprint: 花のように、空を舞う „Wie eine Blume flatternd durch den Himmel tanzen“.
         </p>
 
         <p>
