@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 const images = [
-  "/potm/mai/potm_mai_1.jpg",
-  "/potm/mai/potm_mai_2.jpg",
-  "/potm/mai/potm_mai_3.jpg",
-  "/potm/mai/potm_mai_4.jpg",
+  "/potm/juni/potm_juni_1.jpg",
+  "/potm/juni/potm_juni_2.jpg",
+  "/potm/juni/potm_juni_3.jpg",
+  "/potm/juni/potm_juni_4.jpg",
 ];
 
 const STRIPE_LINKS: Record<string, string> = {
