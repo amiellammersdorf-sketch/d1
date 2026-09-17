@@ -9,13 +9,25 @@ const images = [
   "/potm/juni/potm_juni_4.jpg",
 ];
 
-const STRIPE_LINKS: Record<string, string> = {
-  S: "https://buy.stripe.com/28E9AVcsHgbtggldqr4Vy0b",
-  M: "https://buy.stripe.com/fZudRbgIXbVdggleuv4Vy0c",
-  L: "https://buy.stripe.com/7sY4gB9gvcZh3tzcmn4Vy0e",
-  XL: "https://buy.stripe.com/dRm00lfET1gzc05gCD4Vy0d",
-};
+const handleBuy = () => {
+  if (!size) return;
 
+  const subject = "Bestellung Print des Monats – Mau Hana";
+
+  const body = `Hoi D1
+
+Ich möchte das Mau Hana T-Shirt bestellen.
+
+Grösse: ${size}
+Name:
+Lieferadresse:
+
+Liebe Grüsse`;
+
+  window.location.href = `mailto:info@d1studio.ch?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
+};
 export default function PrintOfTheMonth() {
   const [index, setIndex] = useState(0);
   const [size, setSize] = useState<string | null>(null);
