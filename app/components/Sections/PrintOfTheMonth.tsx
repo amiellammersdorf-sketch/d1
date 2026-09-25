@@ -46,9 +46,9 @@ Liebe Grüsse`;
       {/* PRODUCT */}
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
         <p>
-          <strong>Mau Hana</strong>
+          <strong>Deewan</strong>
           <br />
-          T-Shirt
+          Longsleeve T-Shirt
           <br />
           CHF 70.–
         </p>
