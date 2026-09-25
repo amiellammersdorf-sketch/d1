@@ -46,7 +46,7 @@ Liebe Grüsse`;
       {/* PRODUCT */}
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
         <p>
-          <strong>Deewan</strong>
+          <strong>Deewan Print Truck</strong>
           <br />
           Longsleeve T-Shirt
           <br />
