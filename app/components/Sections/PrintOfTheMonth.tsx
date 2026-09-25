@@ -5,7 +5,8 @@ import { useState } from "react";
 const images = [
   "/potm/oct/potm_oct_1.jpg",
   "/potm/oct/potm_oct_2.jpg",
-  "/potm/oct/potm_oct_3.jpg",
+  "/potm/oct/potm_oct_3.jpg"
+  "/potm/oct/potm_oct_4.jpg",
 ];
 
 export default function PrintOfTheMonth() {
