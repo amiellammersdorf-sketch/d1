@@ -50,7 +50,7 @@ Liebe Grüsse`;
           <br />
           T-Shirt
           <br />
-          CHF 50.–
+          CHF 70.–
         </p>
       </div>
 
