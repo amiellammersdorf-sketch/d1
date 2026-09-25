@@ -83,11 +83,7 @@ Liebe Grüsse`;
 
       {/* DESCRIPTION */}
       <div className="space-y-6 text-[18px] leading-[26px] md:text-2xl md:leading-snug">
-        <p>
-          Pocketprint: 花舞う "(Hanamau) – flatternde Blüten in Bewegung".
-          Backprint: 花のように、空を舞う „Wie eine Blume flatternd durch den
-          Himmel tanzen“.
-        </p>
+      
 
         <p>
           Design von{" "}
@@ -101,11 +97,10 @@ Liebe Grüsse`;
           </a>
         </p>
 
-        <p>6-farbiger Siebdruck auf dem Rücken, 2-farbiger Frontprint.</p>
+        <p>2-farbiger Pocketprint, je ein 2-farbiger Druck auf beiden Ärmeln und ein 6-farbiger fotorealistischer Rückenprint.</p>
 
         <p>
-          Von Hand gedruckt im D1 auf hochwertigen Stanley/Stella Sparker 2.0 –
-          ein schweres, robustes Shirt mit moderner Passform aus Bio-Baumwolle.
+          Von Hand gedruckt im D1 auf einem schweren Stanley/Stella Longsleeve aus Bio-Baumwolle mit Relaxed Fit.
         </p>
       </div>
 
