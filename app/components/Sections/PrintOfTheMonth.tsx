@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const images = [
-  "/potm/juni/potm_juni_1.jpg",
+  "/potm/oct/potm_oct_1.jpg",
   "/potm/juni/potm_juni_2.jpg",
   "/potm/juni/potm_juni_3.jpg",
   "/potm/juni/potm_juni_4.jpg",
